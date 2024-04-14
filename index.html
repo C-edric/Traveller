@@ -19,10 +19,11 @@
   <header>
     <div class="container-fluid d-flex">
       <div class="p-2 flex-grow-1">
-        <input type="text" class="form-control" id="characterName" value="LAWSON Angus" />
+        <h1 class="display-7 fw-bold text-center" id="title">NAME Surname</h1>
       </div>
-      <div class="p-2">
-        <button type="button" class="btn btn-primary" id="editButton">Edit</button>
+      <div class="form-check form-switch align-self-center" id="EditElement">
+        <input class="form-check-input" type="checkbox" role="switch" id="editInput">
+        <label class="form-check-label" for="editInput" id="editLabel">Edit</label>
       </div>
     </div>
   </header>
@@ -34,27 +35,617 @@
           type="button" role="tab" aria-controls="pills-identity" aria-selected="true">Identity</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-characteristics-tab" data-bs-toggle="pill" data-bs-target="#pills-characteristics"
-          type="button" role="tab" aria-controls="pills-characteristics" aria-selected="false">Characteristics</button>
+        <button class="nav-link" id="pills-characteristics-tab" data-bs-toggle="pill"
+          data-bs-target="#pills-characteristics" type="button" role="tab" aria-controls="pills-characteristics"
+          aria-selected="false">Characteristics</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-skills-tab" data-bs-toggle="pill" data-bs-target="#pills-skills"
           type="button" role="tab" aria-controls="pills-skills" aria-selected="false">Skills</button>
+      </li>
+      <li class="nav-item dropdown" role="presentation">
+        <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Equipments
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-weapons" type="button" role="tab"
+              aria-controls="pills-weapons" aria-selected="false">Weapons</a></li>
+          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-armors" type="button" role="tab"
+              aria-controls="pills-armors" aria-selected="false">Armors</a></li>
+          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-augments" type="button" role="tab"
+              aria-controls="pills-augments" aria-selected="false">Augments</a></li>
+          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-equipments" type="button" role="tab"
+              aria-controls="pills-equipments" aria-selected="false">Other</a></li>
+        </ul>
       </li>
     </ul>
   </nav>
 
   <section class="container-fluid d-flex">
     <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-identity" role="tabpanel" aria-labelledby="pills-identity-tab">Identity of the character...</div>
-      <div class="tab-pane fade" id="pills-characteristics" role="tabpanel" aria-labelledby="pills-characteristics-tab">Characteristics of the character...</div>
-      <div class="tab-pane fade" id="pills-skills" role="tabpanel" aria-labelledby="pills-skills-tab">Skills of the character...</div>
+      <div class="tab-pane fade show active" id="pills-identity" role="tabpanel" aria-labelledby="pills-identity-tab">
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4" id="nameLabel">Name</span>
+          <input type="text" class="form-control col-8" id="name" placeholder="name" aria-label="name"
+            aria-describedby="name">
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4" id="surnameLabel">Surname</span>
+          <input type="text" class="form-control col-8" id="surname" placeholder="surname" aria-label="surname"
+            aria-describedby="surname">
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4" id="ageLabel">Age</span>
+          <input type="text" class="form-control col-8" id="age" placeholder="age" aria-label="age" aria-describedby="age">
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4" id="speciesLabel">Species</span>
+          <input type="text" class="form-control col-8" id="species" placeholder="species" aria-label="species"
+            aria-describedby="species">
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4" id="traitsLabel">Traits</span>
+          <input type="text" class="form-control col-8" id="traits" placeholder="traits" aria-label="traits"
+            aria-describedby="traits">
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4" id="homeworldLabel">Homeworld</span>
+          <input type="text" class="form-control col-8" id="homeworld" placeholder="world/city" aria-label="homeworld"
+            aria-describedby="homeworld">
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4" id="radsLabel">Rads</span>
+          <input type="text" class="form-control text-end" id="rads" placeholder="0.0" aria-label="rads"
+            aria-describedby="rads">
+          <span class="input-group-text col-4" id="radsUnitLabel">rad/hour</span>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="pills-characteristics" role="tabpanel" aria-labelledby="pills-characteristics-tab">
+        <div class="input-group mt-3">
+          <span class="input-group-text">Strength</span>
+          <input type="text" class="form-control text-start" id="ModifierStrength" value="+1"
+            aria-label="Modifier strength" readonly>
+          <input type="text" class="form-control text-end" id="InitialStrength" value="0" aria-label="Initial strength">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="InitialStrength">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="InitialStrength">+</button>
+          <input type="text" class="form-control text-end" id="CurrentStrength" value="0" aria-label="Current strength">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="CurrentStrength">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="CurrentStrength">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Dexterity</span>
+          <input type="text" class="form-control text-start" id="ModifierDexterity" value="+1"
+            aria-label="Modifier dexterity" readonly>
+          <input type="text" class="form-control text-end" id="InitialDexterity" value="0"
+            aria-label="Initial dexterity">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="InitialDexterity">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="InitialDexterity">+</button>
+          <input type="text" class="form-control text-end" id="CurrentDexterity" value="0"
+            aria-label="Current dexterity">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="CurrentDexterity">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="CurrentDexterity">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Constitution</span>
+          <input type="text" class="form-control text-start" id="ModifierConstitution" value="+1"
+            aria-label="Modifier Constitution" readonly>
+          <input type="text" class="form-control text-end" id="InitialConstitution" value="0"
+            aria-label="Initial constitution">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="InitialConstitution">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="InitialConstitution">+</button>
+          <input type="text" class="form-control text-end" id="CurrentConstitution" value="0"
+            aria-label="Current constitution">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="CurrentConstitution">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="CurrentConstitution">+</button>
+        </div>
+        <hr>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Intellect</span>
+          <input type="text" class="form-control text-start" id="ModifierIntellect" value="+1"
+            aria-label="Modifier Intellect" readonly>
+          <input type="text" class="form-control text-end" id="InitialIntellect" value="0"
+            aria-label="Initial intellect">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="InitialIntellect">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="InitialIntellect">+</button>
+          <input type="text" class="form-control text-end" id="CurrentIntellect" value="0"
+            aria-label="Current intellect">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="CurrentIntellect">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="CurrentIntellect">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Education</span>
+          <input type="text" class="form-control text-start" id="ModifierEducation" value="+1"
+            aria-label="Modifier Education" readonly>
+          <input type="text" class="form-control text-end" id="InitialEducation" value="0"
+            aria-label="Initial education">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="InitialEducation">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="InitialEducation">+</button>
+          <input type="text" class="form-control text-end" id="CurrentEducation" value="0"
+            aria-label="Current education">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="CurrentEducation">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="CurrentEducation">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Social</span>
+          <input type="text" class="form-control text-start" id="ModifierSocial" value="+1" aria-label="Modifier Social"
+            readonly>
+          <input type="text" class="form-control text-end" id="InitialSocial" value="0" aria-label="Initial social">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="InitialSocial">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="InitialSocial">+</button>
+          <input type="text" class="form-control text-end" id="CurrentSocial" value="0" aria-label="Current social">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="CurrentSocial">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="CurrentSocial">+</button>
+        </div>
+      </div>
+
+
+      <div class="tab-pane fade" id="pills-skills" role="tabpanel" aria-labelledby="pills-skills-tab">
+        Skills of the character...
+        <div class="input-group mt-3">
+          <span class="input-group-text">Admin</span>
+          <input type="text" class="form-control text-end" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierAdmin" value="-3" aria-label="Modifier Social"
+            readonly>
+          <input type="text" class="form-control text-end" id="Admin" value="0" aria-label="Admin">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Admin">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Admin">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Advocate</span>
+          <input type="text" class="form-control text-end" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierAdvocate" value="-3"
+            aria-label="Modifier Advocate" readonly>
+          <input type="text" class="form-control text-end" id="Advocate" value="0" aria-label="Advocate">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Advocate">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Advocate">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Animals</span>
+          <input type="text" class="form-control" value="(cat)" aria-label="cat">
+          <input type="text" class="form-control text-start" id="ModifierAnimalsCat" value="-3"
+            aria-label="Modifier animals cat" readonly>
+          <input type="text" class="form-control text-end" id="AnimalsCat" value="0" aria-label="Animals Cat">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="AnimalsCat">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="AnimalsCat">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Athletics</span>
+          <input type="text" class="form-control" value="---" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierAthletics" value="-3"
+            aria-label="Modifier athletics" readonly>
+          <input type="text" class="form-control text-end" id="Athletics" value="0" aria-label="Athletics">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Athletics">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Athletics">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Art</span>
+          <input type="text" class="form-control" value="---" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierArt" value="-3" aria-label="Modifier Art"
+            readonly>
+          <input type="text" class="form-control text-end" id="Art" value="0" aria-label="Art">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Art">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus" data-field="Art">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Astrogation</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierAstrogation" value="-3"
+            aria-label="Modifier Astrogation" readonly>
+          <input type="text" class="form-control text-end" id="Astrogation" value="0" aria-label="Astrogation">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Astrogation">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Astrogation">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Broker</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierBroker" value="-3" aria-label="Modifier Broker"
+            readonly>
+          <input type="text" class="form-control text-end" id="Broker" value="0" aria-label="Broker">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Broker">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Broker">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Carouse</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierCarouse" value="-3"
+            aria-label="Modifier Carouse" readonly>
+          <input type="text" class="form-control text-end" id="Carouse" value="0" aria-label="Carouse">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Carouse">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Carouse">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Deception</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierDeception" value="-3"
+            aria-label="Modifier Deception" readonly>
+          <input type="text" class="form-control text-end" id="Deception" value="0" aria-label="Deception">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Deception">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Deception">+</button>
+        </div>
+
+        <div class="input-group mt-3">
+          <span class="input-group-text">Diplomat</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierDiplomat" value="-3"
+            aria-label="Modifier Diplomat" readonly>
+          <input type="text" class="form-control text-end" id="Diplomat" value="0" aria-label="Diplomat">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Diplomat">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Diplomat">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Drive</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierDrive" value="-3"
+            aria-label="Modifier Drive" readonly>
+          <input type="text" class="form-control text-end" id="Drive" value="0" aria-label="Drive">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Drive">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Drive">+</button>
+        </div>  
+        <div class="input-group mt-3">
+          <span class="input-group-text">Electronics</span>
+          <input type="text" class="form-control" value="---" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierElectronics" value="-3"
+            aria-label="Modifier Electronics" readonly>
+          <input type="text" class="form-control text-end" id="Electronics" value="0" aria-label="Electronics">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Electronics">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Electronics">+</button>
+        </div>  
+        <div class="input-group mt-3">
+          <span class="input-group-text">Engineer</span>
+          <input type="text" class="form-control" value="---" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierEngineer" value="-3"
+            aria-label="Modifier Engineer" readonly>
+          <input type="text" class="form-control text-end" id="Engineer" value="0" aria-label="Engineer">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Engineer">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Engineer">+</button>
+        </div>  
+        <div class="input-group mt-3">
+          <span class="input-group-text">Explosives</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierExplosives" value="-3"
+            aria-label="Modifier Explosives" readonly>
+          <input type="text" class="form-control text-end" id="Explosives" value="0" aria-label="Explosives">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Explosives">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Explosives">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Flyer</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierFlyer" value="-3"
+            aria-label="Modifier Flyer" readonly>
+          <input type="text" class="form-control text-end" id="Flyer" value="0" aria-label="Flyer">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Flyer">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Flyer">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Gambler</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierGambler" value="-3"
+            aria-label="Modifier Gambler" readonly>
+          <input type="text" class="form-control text-end" id="Gambler" value="0" aria-label="Gambler">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Gambler">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Gambler">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Gunner</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierGunner" value="-3"
+            aria-label="Modifier Gunner" readonly>
+          <input type="text" class="form-control text-end" id="Gunner" value="0" aria-label="Gunner">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Gunner">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Gunner">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Gun combat</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierGunCombat" value="-3"
+            aria-label="Modifier Gun Combat" readonly>
+          <input type="text" class="form-control text-end" id="GunCombat" value="0" aria-label="GunCombat">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="GunCombat">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="GunCombat">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Heavy weapon</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierHeavyWeapon" value="-3"
+            aria-label="Modifier Heavy Weapon" readonly>
+          <input type="text" class="form-control text-end" id="HeavyWeapon" value="0" aria-label="HeavyWeapon">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="HeavyWeapon">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="HeavyWeapon">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Investigate</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierInvestigate" value="-3"
+            aria-label="Modifier Investigate" readonly>
+          <input type="text" class="form-control text-end" id="Investigate" value="0" aria-label="Investigate">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Investigate">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Investigate">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Jack of all trades</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierJackOfAllTrades" value="-3"
+            aria-label="Modifier Jack Of All Trades" readonly>
+          <input type="text" class="form-control text-end" id="JackOfAllTrades" value="0" aria-label="JackOfAllTrades">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="JackOfAllTrades">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="JackOfAllTrades">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Language</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierLanguage" value="-3"
+            aria-label="Modifier Jack Of All Trades" readonly>
+          <input type="text" class="form-control text-end" id="Language" value="0" aria-label="Language">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Language">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Language">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Leadership</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierLeadership" value="-3"
+            aria-label="Modifier Leadership" readonly>
+          <input type="text" class="form-control text-end" id="Leadership" value="0" aria-label="Leadership">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Leadership">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Leadership">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Mechanic</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierMechanic" value="-3"
+            aria-label="Modifier Mechanic" readonly>
+          <input type="text" class="form-control text-end" id="Mechanic" value="0" aria-label="Mechanic">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Mechanic">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Mechanic">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Medic</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierMedic" value="-3"
+            aria-label="Modifier Medic" readonly>
+          <input type="text" class="form-control text-end" id="Medic" value="0" aria-label="Medic">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Medic">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Medic">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Melee</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierMelee" value="-3"
+            aria-label="Modifier Melee" readonly>
+          <input type="text" class="form-control text-end" id="Melee" value="0" aria-label="Melee">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Melee">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Melee">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Navigation</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierNavigation" value="-3"
+            aria-label="Modifier Navigation" readonly>
+          <input type="text" class="form-control text-end" id="Navigation" value="0" aria-label="Navigation">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Navigation">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Navigation">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Persuade</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierPersuade" value="-3"
+            aria-label="Modifier Persuade" readonly>
+          <input type="text" class="form-control text-end" id="Persuade" value="0" aria-label="Persuade">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Persuade">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Persuade">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Pilot</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierPilot" value="-3"
+            aria-label="Modifier Pilot" readonly>
+          <input type="text" class="form-control text-end" id="Pilot" value="0" aria-label="Pilot">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Pilot">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Pilot">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Profession</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierProfession" value="-3"
+            aria-label="Modifier Profession" readonly>
+          <input type="text" class="form-control text-end" id="Profession" value="0" aria-label="Profession">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Profession">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Profession">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Recon</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierRecon" value="-3"
+            aria-label="Modifier Recon" readonly>
+          <input type="text" class="form-control text-end" id="Recon" value="0" aria-label="Recon">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Recon">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Recon">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Science</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierScience" value="-3"
+            aria-label="Modifier Science" readonly>
+          <input type="text" class="form-control text-end" id="Science" value="0" aria-label="Science">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Science">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Science">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Stealth</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierStealth" value="-3"
+            aria-label="Modifier Stealth" readonly>
+          <input type="text" class="form-control text-end" id="Stealth" value="0" aria-label="Stealth">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Stealth">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Stealth">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Steward</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierSteward" value="-3"
+            aria-label="Modifier Steward" readonly>
+          <input type="text" class="form-control text-end" id="Steward" value="0" aria-label="Steward">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Steward">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Steward">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Streetwise</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierStreetwise" value="-3"
+            aria-label="Modifier Streetwise" readonly>
+          <input type="text" class="form-control text-end" id="Streetwise" value="0" aria-label="Streetwise">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Streetwise">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Streetwise">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Survival</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierSurvival" value="-3"
+            aria-label="Modifier Survival" readonly>
+          <input type="text" class="form-control text-end" id="Survival" value="0" aria-label="Survival">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Survival">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Survival">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Tactics</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierTactics" value="-3"
+            aria-label="Modifier Tactics" readonly>
+          <input type="text" class="form-control text-end" id="Tactics" value="0" aria-label="Tactics">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="Tactics">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="Tactics">+</button>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text">Vac suit</span>
+          <input type="text" class="form-control" value="" aria-label="">
+          <input type="text" class="form-control text-start" id="ModifierVacSuit" value="-3"
+            aria-label="Modifier Vac Suit" readonly>
+          <input type="text" class="form-control text-end" id="VacSuit" value="0" aria-label="VacSuit">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="VacSuit">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="VacSuit">+</button>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="pills-weapons" role="tabpanel" aria-labelledby="pills-weapons-tab">Weapons
+        of the character...
+      </div>
+      <div class="tab-pane fade" id="pills-armors" role="tabpanel" aria-labelledby="pills-armors-tab">Armors
+        of the character...
+      </div>
+      <div class="tab-pane fade" id="pills-augments" role="tabpanel" aria-labelledby="pills-augments-tab">Augments
+        of the character...
+      </div>
+      <div class="tab-pane fade" id="pills-equipments" role="tabpanel" aria-labelledby="pills-equipments-tab">Equipments
+        of the character...
+      </div>
     </div>
   </section>
 
   <footer>
+    <textarea class="form-control mt-3" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
     <p class="text-center text-muted">Work in progress</p>
   </footer>
+
+  <script src="main.js"></script>
 </body>
 
 </html>
