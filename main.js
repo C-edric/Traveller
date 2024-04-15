@@ -41,7 +41,7 @@ class Character {
         this.name = "LAWSON"
         this.surname = "Angus"
         this.age = "30 years"
-        this.race = "Humaniti-Vilany"
+        this.race = "Humaniti Vilany"
         this.traits = "Xenophob"
         this.homeworld = "Maltherton/Salbari"
         this.rads = "0"
