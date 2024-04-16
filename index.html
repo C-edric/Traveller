@@ -90,14 +90,14 @@
           <input type="text" class="form-control col-8" list="raceList" id="race" placeholder="race" aria-label="race"
             aria-describedby="race">
           <datalist id="raceList">
-            <option value="Aslan">
-            <option value="Droyne">
-            <option value="Hivers">
-            <option value="K'kree">
-            <option value="Vargr">
-            <option value="Humaniti-Solomani">
-            <option value="Humaniti-Vilani">
-            <option value="Humaniti-Zhodani">
+            <option value="Aslan"></option>
+            <option value="Droyne"></option>
+            <option value="Hivers"></option>
+            <option value="K'kree"></option>
+            <option value="Vargr"></option>
+            <option value="Humaniti-Solomani"></option>
+            <option value="Humaniti-Vilani"></option>
+            <option value="Humaniti-Zhodani"></option>
           </datalist>
         </div>
         <div class="input-group mt-3">
@@ -206,25 +206,24 @@
       <div class="tab-pane fade" id="pills-skills" role="tabpanel" aria-labelledby="pills-skills-tab">
         <div class="input-group mt-3">
           <span class="input-group-text col-4 justify-content-end">Admin</span>
-          <input type="text" class="form-control text-end" value="" aria-label="">
-          <input type="text" class="form-control text-start" id="ModifierAdmin" value="-3" aria-label="Modifier Social"
-            readonly>
-          <input type="text" class="form-control text-end" id="Admin" value="0" aria-label="Admin">
-          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
-            data-field="Admin">-</button>
-          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
-            data-field="Admin">+</button>
+          <div class="col-3"><input type="text" class="form-control text-end" value="" aria-label=""></div>
+          <div class="col-1"><input type="text" class="form-control text-start" id="ModifierAdmin" value="-3" aria-label="Modifier Social" readonly></div>
+          <div class="col-1"><input type="text" class="form-control text-end" id="Admin" value="0" aria-label="Admin"></div>
+          <div class="col-1"><input type="text" class="form-control text-end" id="xpAdmin" value="2" aria-label="Admin"></div>
+          <button class="btn btn-outline-secondary skillminusplus col-1" type="button" data-type="minus" data-field="admin">-</button>
+          <button class="btn btn-outline-secondary skillminusplus col-1" type="button" data-type="plus" data-field="admin">+</button>
         </div>
         <div class="input-group mt-3">
           <span class="input-group-text col-4 justify-content-end">Advocate</span>
-          <input type="text" class="form-control text-end" value="" aria-label="">
-          <input type="text" class="form-control text-start" id="ModifierAdvocate" value="-3"
-            aria-label="Modifier Advocate" readonly>
-          <input type="text" class="form-control text-end" id="Advocate" value="0" aria-label="Advocate">
-          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
-            data-field="Advocate">-</button>
-          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
-            data-field="Advocate">+</button>
+          <div class="col-3"><input type="text" class="form-control text-end" value="" aria-label=""></div>
+          <div class="col-1"><input type="text" class="form-control text-start" id="ModifierAdvocate" value="-3"
+            aria-label="Modifier Advocate" readonly></div>
+          <div class="col-1"><input type="text" class="form-control text-end" id="Advocate" value="0" aria-label="Advocate"></div>
+          <div class="col-1"><input type="text" class="form-control text-end" id="xpAdvocate" value="3" aria-label="Advocate"></div>
+          <button class="btn btn-outline-secondary skillminusplus col-1" type="button" data-type="minus"
+            data-field="advocate">-</button>
+          <button class="btn btn-outline-secondary skillminusplus col-1" type="button" data-type="plus"
+            data-field="advocate">+</button>
         </div>
         <div class="input-group mt-3">
           <span class="input-group-text col-4 justify-content-end">Animals</span>

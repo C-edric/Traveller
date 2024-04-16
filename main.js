@@ -33,6 +33,13 @@ const currentIntellectInput = document.getElementById("CurrentIntellect");
 const currentEducationInput = document.getElementById("CurrentEducation");
 const currentSocialInput = document.getElementById("CurrentSocial");
 
+const adminInput = document.getElementById("Admin");
+const advocateInput = document.getElementById("Advocate");
+
+const xpAdminInput = document.getElementById("xpAdmin");
+const xpAdvocateInput = document.getElementById("xpAdvocate");
+
+
 let editionActivated = false
 
 class Character {
@@ -60,6 +67,12 @@ class Character {
         this.intellect = 8
         this.education = 13
         this.social = 4
+
+        this.admin = 0
+        this.advocate = 1
+
+        this.xpAdmin = 3
+        this.xpAdvocate = 5
     }
 }
 var character = new Character()
@@ -132,10 +145,19 @@ function displayCharacteristics(character) {
 }
 
 
+function displaySkills(character) {
+    adminInput.value = character.admin.toString()
+    advocateInput.value = character.advocate.toString()
+
+    xpAdminInput.value = character.xpAdmin.toString()
+    xpAdvocateInput.value = character.xpAdvocate.toString()
+}
+
+
 displayTitle(character);
 displayIdentity(character);
 displayCharacteristics(character);
-
+displaySkills(character);
 
 function setInitialCharacteristicsEditable() {
     initialStrengthInput.removeAttribute('readonly')
@@ -177,8 +199,32 @@ function setCurrentCharacteristicsReadOnly() {
     currentSocialInput.setAttribute('readonly', true) 
 }
 
+function setSkillsEditable() {
+    adminInput.removeAttribute('readonly')
+    advocateInput.removeAttribute('readonly')
+}
+
+function setXpSkillsEditable() {
+    xpAdminInput.removeAttribute('readonly')
+    xpAdvocateInput.removeAttribute('readonly')
+}
+
+function setSkillsReadOnly() {
+    adminInput.setAttribute('readonly', true)
+    advocateInput.setAttribute('readonly', true)
+}
+
+function setXpSkillsReadOnly() {
+    xpAdminInput.setAttribute('readonly', true)
+    xpAdvocateInput.setAttribute('readonly', true)
+}
+
 setInitialCharacteristicsReadOnly();
 setCurrentCharacteristicsEditable();
+setXpSkillsEditable();
+setSkillsReadOnly();
+
+editInput.checked = false
 
 editInput.addEventListener("change", function () {
     if (this.checked) {
@@ -186,12 +232,16 @@ editInput.addEventListener("change", function () {
         editionActivated = true
         setInitialCharacteristicsEditable()
         setCurrentCharacteristicsReadOnly()
+        setSkillsEditable()
+        setXpSkillsReadOnly()
 
     } else {
         console.log("You are now in running mode");
         editionActivated = false
         setInitialCharacteristicsReadOnly()
         setCurrentCharacteristicsEditable()
+        setXpSkillsEditable()
+        setSkillsReadOnly()
     }
 })
 
@@ -208,6 +258,11 @@ surnameInput.addEventListener("change", function () {
 const nodeList = document.querySelectorAll("button.minusplus");
 for (var i = 0; i < nodeList.length; i++) {
     nodeList[i].addEventListener("click", changeCharacteristic);
+}
+
+const skillList = document.querySelectorAll("button.skillminusplus");
+for (var i = 0; i < skillList.length; i++) {
+    skillList[i].addEventListener("click", changeSkill);
 }
 
 function changeCharacteristic(event) {
@@ -233,4 +288,27 @@ function changeCharacteristic(event) {
         }
     }
     displayCharacteristics(character)
+}
+
+function changeSkill(event) {
+    var fieldname = this.dataset.field
+    var type = this.dataset.type
+
+    if (editionActivated) {
+        var currentValue = character[fieldname]
+        if (type == 'minus') {
+            character[fieldname] = currentValue - 1
+        } else if (type == 'plus') {
+            character[fieldname] = currentValue + 1
+        }
+    } else {
+        var xpFieldname = "xp" + fieldname.charAt(0).toUpperCase() + fieldname.slice(1)
+        var currentValue = character[xpFieldname]
+        if (type == 'minus') {
+            character[xpFieldname] = currentValue - 1
+        } else if (type == 'plus') {
+            character[xpFieldname] = currentValue + 1
+        }
+    }
+    displaySkills(character)
 }
