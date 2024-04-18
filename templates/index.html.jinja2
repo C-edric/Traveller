@@ -5,11 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Traveller's character sheet</title>
-  <!--
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" />
   <script src="static/js/popper.min.js"></script>
   <script src="static/js/bootstrap.min.js"></script>
-  -->
+  <!--
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
@@ -18,6 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
     crossorigin="anonymous"></script>
+  -->
 </head>
 
 <body>
@@ -26,7 +26,7 @@
       <div class="p-2 flex-grow-1">
         <h1 class="display-7 fw-bold text-center" id="title">NAME Surname</h1>
       </div>
-      <div class="form-check form-switch align-self-center" id="editElement">
+      <div class="form-check form-switch align-self-center" id="EditElement">
         <input class="form-check-input" type="checkbox" role="switch" id="editInput">
         <label class="form-check-label" for="editInput" id="editLabel">Edit</label>
       </div>
@@ -34,33 +34,33 @@
   </header>
 
   <nav>
-    <ul class="nav nav-pills nav-fill" id="main-nav" role="tablist">
+    <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="btn-identity-tab" data-bs-toggle="pill" data-bs-target="#tab-identity"
-          type="button" role="tab" aria-controls="tab-identity" aria-selected="true">Card Id</button>
+        <button class="nav-link active" id="pills-identity-tab" data-bs-toggle="pill" data-bs-target="#pills-identity"
+          type="button" role="tab" aria-controls="pills-identity" aria-selected="true">Card Id</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="btn-characteristics-tab" data-bs-toggle="pill"
-          data-bs-target="#tab-characteristics" type="button" role="tab" aria-controls="tab-characteristics"
+        <button class="nav-link" id="pills-characteristics-tab" data-bs-toggle="pill"
+          data-bs-target="#pills-characteristics" type="button" role="tab" aria-controls="pills-characteristics"
           aria-selected="false">Charact.</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="btn-skills-tab" data-bs-toggle="pill" data-bs-target="#tab-skills"
-          type="button" role="tab" aria-controls="tab-skills" aria-selected="false">Skills</button>
+        <button class="nav-link" id="pills-skills-tab" data-bs-toggle="pill" data-bs-target="#pills-skills"
+          type="button" role="tab" aria-controls="pills-skills" aria-selected="false">Skills</button>
       </li>
       <li class="nav-item dropdown" role="presentation">
-        <button class="nav-link dropdown-toggle" id="btn-equipment-tabs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Equip.
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#tab-weapons" type="button" role="tab"
-              aria-controls="tab-weapons" aria-selected="false">Weapons</a></li>
-          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#tab-armors" type="button" role="tab"
-              aria-controls="tab-armors" aria-selected="false">Armors</a></li>
-          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#tab-augments" type="button" role="tab"
-              aria-controls="tab-augments" aria-selected="false">Augments</a></li>
-          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#tab-others" type="button" role="tab"
-              aria-controls="tab-others" aria-selected="false">Others</a></li>
+          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-weapons" type="button" role="tab"
+              aria-controls="pills-weapons" aria-selected="false">Weapons</a></li>
+          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-armors" type="button" role="tab"
+              aria-controls="pills-armors" aria-selected="false">Armors</a></li>
+          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-augments" type="button" role="tab"
+              aria-controls="pills-augments" aria-selected="false">Augments</a></li>
+          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-equipments" type="button" role="tab"
+              aria-controls="pills-equipments" aria-selected="false">Other</a></li>
         </ul>
       </li>
     </ul>
@@ -68,24 +68,28 @@
 
   <!--  <section class="container-fluid d-flex">-->
   <section>
-    <div class="tab-content" id="tab-content">
-      <div class="tab-pane fade show active" id="tab-identity" role="tabpanel" aria-labelledby="btn-identity-tab">
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-identity" role="tabpanel" aria-labelledby="pills-identity-tab">
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end" id="name-label">Name</span>
-          <input type="text" class="form-control col-8" id="character-name" placeholder="name" aria-labelledby="name-label">
+          <span class="input-group-text col-4 justify-content-end" id="nameLabel">Name</span>
+          <input type="text" class="form-control" id="name" placeholder="name"
+            aria-labelledby="nameLabel">
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end" id="surname-label">Surname</span>
-          <input type="text" class="form-control col-8" id="character-surname" placeholder="surname" aria-labelledby="surname-label">
+          <span class="input-group-text col-4 justify-content-end" id="surnameLabel">Surname</span>
+          <input type="text" class="form-control" id="surname" placeholder="surname" aria-label="surname"
+            aria-describedby="surname">
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end" id="age-label">Age</span>
-          <input type="text" class="form-control col-8" id="character-age" placeholder="age" aria-label="age" aria-labelledby="age-label">
+          <span class="input-group-text col-4 justify-content-end" id="ageLabel">Age</span>
+          <input type="text" class="form-control" id="age" placeholder="age" aria-label="age"
+            aria-describedby="age">
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end" id="race-label">Race</span>
-          <input type="text" class="form-control col-8" list="race-list" id="character-race" placeholder="race" aria-labelledby="race-label">
-          <datalist id="race-list">
+          <span class="input-group-text col-4 justify-content-end" id="raceLabel">Race</span>
+          <input type="text" class="form-control" list="raceList" id="race" placeholder="race" aria-label="race"
+            aria-describedby="race">
+          <datalist id="raceList">
             <option value="Aslan"></option>
             <option value="Droyne"></option>
             <option value="Hivers"></option>
@@ -97,16 +101,19 @@
           </datalist>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end" id="traits-label">Traits</span>
-          <input type="text" class="form-control col-8" id="character-traits" placeholder="traits" aria-labelledby="traits-label">
+          <span class="input-group-text col-4 justify-content-end" id="traitsLabel">Traits</span>
+          <input type="text" class="form-control" id="traits" placeholder="traits" aria-label="traits"
+            aria-describedby="traits">
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end" id="homeworld-label">Homeworld</span>
-          <input type="text" class="form-control col-8" id="character-homeworld" placeholder="world/city" aria-labelledby="homeworld-label">
+          <span class="input-group-text col-4 justify-content-end" id="homeworldLabel">Homeworld</span>
+          <input type="text" class="form-control" id="homeworld" placeholder="world/city" aria-label="homeworld"
+            aria-describedby="homeworld">
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end" id="rads-label">Rads</span>
-          <input type="text" class="form-control text-end" id="character-rads" placeholder="0.0" aria-labelledby="rads-label">
+          <span class="input-group-text col-4 justify-content-end" id="radsLabel">Rads</span>
+          <input type="text" class="form-control text-end" id="rads" placeholder="0.0" aria-label="rads"
+            aria-describedby="rads">
           <select class="form-select" aria-label="rads unit">
             <option>mrad/h</option>
             <option selected>rad/h</option>
@@ -115,19 +122,26 @@
         </div>
       </div>
 
-      <div class="tab-pane fade" id="tab-characteristics" role="tabpanel" aria-labelledby="btn-characteristics-tab">
+      <div class="tab-pane fade" id="pills-characteristics" role="tabpanel" aria-labelledby="pills-characteristics-tab">
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end" id="strength-text">Strength</span>
-          <input type="text" class="form-control text-start" id="strength-modifier" value="+1" aria-label="Strength modifier" readonly>
-          <input type="text" class="form-control text-end" id="strength-initial" value="0" aria-label="Initial strength">
-          <input type="text" class="form-control text-end" id="strength-current" value="0" aria-label="Current strength">
-          <button type="button" class="btn btn-outline-secondary minusplus" id="strength-minus" data-type="minus" data-field="strength">-</button>
-          <button type="button" class="btn btn-outline-secondary minusplus" id="strength-plus" data-type="plus" data-field="strength">+</button>
+          <span class="input-group-text col-4 justify-content-end">Strength</span>
+          <input type="text" class="form-control text-start col-1" id="ModifierStrength" value="+1"
+            aria-label="Modifier strength" readonly>
+          <input type="text" class="form-control col-1 text-end" id="InitialStrength" value="0"
+            aria-label="Initial strength">
+          <input type="text" class="form-control col-1 text-end" id="CurrentStrength" value="0"
+            aria-label="Current strength">
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
+            data-field="strength">-</button>
+          <button class="btn btn-outline-secondary minusplus" type="button" data-type="plus"
+            data-field="strength">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end" id="dexterity-text">Dexterity</span>
-          <input type="text" class="form-control text-start col-1" id="dexterity-modifier" value="+1" aria-label="Dexterity modifier " readonly>
-          <input type="text" class="form-control text-end" id="dexterity-initial" value="0" aria-label="Initial dexterity">
+          <span class="input-group-text col-4 justify-content-end">Dexterity</span>
+          <input type="text" class="form-control text-start" id="ModifierDexterity" value="+1"
+            aria-label="Modifier dexterity" readonly>
+          <input type="text" class="form-control text-end" id="InitialDexterity" value="0"
+            aria-label="Initial dexterity">
           <input type="text" class="form-control text-end" id="CurrentDexterity" value="0"
             aria-label="Current dexterity">
           <button class="btn btn-outline-secondary minusplus" type="button" data-type="minus"
@@ -193,22 +207,22 @@
         <div class="input-group mt-3">
           <span class="input-group-text col-4 justify-content-end">Admin</span>
           <div class="col-3"><input type="text" class="form-control text-end" value="" aria-label=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start" id="ModifierAdmin" value="-3" aria-label="Modifier Social" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end" id="Admin" value="0" aria-label="Admin"></div>
-          <div class="col-1"><input type="text" class="form-control text-end" id="xpAdmin" value="2" aria-label="Admin"></div>
+          <div class="col-1"><input type="text" class="form-control px-2 text-start" id="ModifierAdmin" value="-3" aria-label="Modifier Social" readonly></div>
+          <div class="col-1"><input type="text" class="form-control px-2 text-end" id="Admin" value="0" aria-label="Admin"></div>
+          <div class="col-1"><input type="text" class="form-control px-2 text-end" id="xpAdmin" value="2" aria-label="Admin"></div>
           <button class="btn btn-outline-secondary skillminusplus col-1" type="button" data-type="minus" data-field="admin">-</button>
           <button class="btn btn-outline-secondary skillminusplus col-1" type="button" data-type="plus" data-field="admin">+</button>
         </div>
         <div class="input-group mt-3">
           <span class="input-group-text col-4 justify-content-end">Advocate</span>
           <div class="col-3"><input type="text" class="form-control text-end" value="" aria-label=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start" id="ModifierAdvocate" value="-3"
+          <div class="col-1"><input type="text" class="form-control px-2 text-start" id="ModifierAdvocate" value="-3"
             aria-label="Modifier Advocate" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end" id="Advocate" value="0" aria-label="Advocate"></div>
-          <div class="col-1"><input type="text" class="form-control text-end" id="xpAdvocate" value="3" aria-label="Advocate"></div>
-          <button class="btn btn-outline-secondary skillminusplus col-1" type="button" data-type="minus"
+          <div class="col-1"><input type="text" class="form-control px-2 text-end" id="Advocate" value="0" aria-label="Advocate"></div>
+          <div class="col-1"><input type="text" class="form-control px-2 text-end" id="xpAdvocate" value="3" aria-label="Advocate"></div>
+          <button class="btn btn-outline-secondary skillminusplus px-2 col-1" type="button" data-type="minus"
             data-field="advocate">-</button>
-          <button class="btn btn-outline-secondary skillminusplus col-1" type="button" data-type="plus"
+          <button class="btn btn-outline-secondary skillminusplus px-2 col-1" type="button" data-type="plus"
             data-field="advocate">+</button>
         </div>
         <div class="input-group mt-3">

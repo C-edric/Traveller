@@ -2,43 +2,27 @@
 const titleInput = document.getElementById("title");
 const editInput = document.getElementById("editInput");
 
+const nameInput = document.getElementById("name-input");
+const surnameInput = document.getElementById("surname-input");
+
 // Identity
-const nameInput = document.getElementById("name");
-const surnameInput = document.getElementById("surname");
-const ageInput = document.getElementById("age");
-const raceInput = document.getElementById("race");
-const traitsInput = document.getElementById("traits");
-const homeworldInput = document.getElementById("homeworld");
-const radsInput = document.getElementById("rads");
+const identityLabels = document.getElementsByClassName("identity-label");
+const identityInputs = document.getElementsByClassName("identity-input");
 
-// Characteristics
-const modifierStrengthInput = document.getElementById("ModifierStrength");
-const modifierDexterityInput = document.getElementById("ModifierDexterity");
-const modifierConstitutionInput = document.getElementById("ModifierConstitution");
-const modifierIntellectInput = document.getElementById("ModifierIntellect");
-const modifierEducationInput = document.getElementById("ModifierEducation");
-const modifierSocialInput = document.getElementById("ModifierSocial");
+// Caracteristics
+const characteristicLabels = document.getElementsByClassName("characteristic-label");
+const characteristicModifiers = document.getElementsByClassName("characteristic-modifier");
+const characteristicInitials = document.getElementsByClassName("characteristic-initial");
+const characteristicCurrents = document.getElementsByClassName("characteristic-current");
+const characteristicMinusPlus = document.getElementsByClassName("characteristic-minus-plus");
 
-const initialStrengthInput = document.getElementById("InitialStrength");
-const initialDexterityInput = document.getElementById("InitialDexterity");
-const initialConstitutionInput = document.getElementById("InitialConstitution");
-const initialIntellectInput = document.getElementById("InitialIntellect");
-const initialEducationInput = document.getElementById("InitialEducation");
-const initialSocialInput = document.getElementById("InitialSocial");
-
-const currentStrengthInput = document.getElementById("CurrentStrength");
-const currentDexterityInput = document.getElementById("CurrentDexterity");
-const currentConstitutionInput = document.getElementById("CurrentConstitution");
-const currentIntellectInput = document.getElementById("CurrentIntellect");
-const currentEducationInput = document.getElementById("CurrentEducation");
-const currentSocialInput = document.getElementById("CurrentSocial");
-
-const adminInput = document.getElementById("Admin");
-const advocateInput = document.getElementById("Advocate");
-
-const xpAdminInput = document.getElementById("xpAdmin");
-const xpAdvocateInput = document.getElementById("xpAdvocate");
-
+// Skills
+const skillLabels = document.getElementsByClassName("skill-label");
+const skillSublabels = document.getElementsByClassName("skill-sublabel");
+const skillModifiers = document.getElementsByClassName("skill-modifier");
+const skillLevels = document.getElementsByClassName("skill-level");
+const skillXps = document.getElementsByClassName("skill-xp");
+const skillMinusPlus = document.getElementsByClassName("skill-minus-plus");
 
 let editionActivated = false
 
@@ -54,12 +38,12 @@ class Character {
         this.rads = "0"
 
         // Characteristics
-        this.initialStrength = 2
-        this.initialDexterity = 9
-        this.initialConstitution = 6
-        this.initialIntellect = 8
-        this.initialEducation = 13
-        this.initialSocial = 4
+        this.strengthInitial = 2
+        this.dexterityInitial = 9
+        this.constitutionInitial = 6
+        this.intellectInitial = 8
+        this.educationInitial = 13
+        this.socialInitial = 4
 
         this.strength = 2
         this.dexterity = 9
@@ -68,29 +52,15 @@ class Character {
         this.education = 13
         this.social = 4
 
-        this.admin = 0
-        this.advocate = 1
+        // Skills
+        this.adminLevel = 0
+        this.advocateLevel = 1
 
-        this.xpAdmin = 3
-        this.xpAdvocate = 5
+        this.adminXp = 3
+        this.advocateXp = 5
     }
 }
 var character = new Character()
-
-
-function displayTitle(character) {
-    titleInput.innerHTML = character.name + " " + character.surname;
-}
-
-function displayIdentity(character) {
-    nameInput.value = character.name
-    surnameInput.value = character.surname
-    ageInput.value = character.age
-    raceInput.value = character.race
-    traitsInput.value = character.traits
-    homeworldInput.value = character.homeworld
-    radsInput.value = character.rads
-}
 
 function calcModifier(value) {
     var modifier = 0
@@ -112,157 +82,142 @@ function calcModifier(value) {
     return modifier
 }
 
+function addPlusIfPositive(value) {
+    var strModifier = value.toString()
+    if (value >= 0)
+        strModifier = "+" + strModifier
+    return strModifier   
+}
+
 function makeModifierString(value) {
     var modifier = calcModifier(value)
-    var strModifier = modifier.toString()
-    if (modifier >= 0)
-        strModifier = "+" + strModifier
-    return strModifier
+    return addPlusIfPositive(modifier)
+}
+
+function displayTitle(character) {
+    titleInput.innerHTML = character.name + " " + character.surname;
+}
+
+function setReadOnly(elements) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].setAttribute('readonly', true)
+    }
+}
+
+function setEditable(elements) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].removeAttribute('readonly')
+    }
+}
+
+
+function displayIdentity(character) {
+    for (var i = 0; i < identityInputs.length; i++) {
+        var field = identityInputs[i].dataset['field']
+        identityInputs[i].value = character[field]
+    }
+}
+
+function setIdentityReadOnly() {
+    setReadOnly(identityInputs)
+}
+
+function setIdentityEditable() {
+    setEditable(identityInputs)
 }
 
 function displayCharacteristics(character) {
-
-    modifierStrengthInput.value = makeModifierString(character.strength)
-    modifierDexterityInput.value = makeModifierString(character.dexterity)
-    modifierConstitutionInput.value = makeModifierString(character.constitution)
-    modifierIntellectInput.value = makeModifierString(character.intellect)
-    modifierEducationInput.value = makeModifierString(character.education)
-    modifierSocialInput.value = makeModifierString(character.social)
-
-    initialStrengthInput.value = character.initialStrength.toString()
-    initialDexterityInput.value = character.initialDexterity.toString()
-    initialConstitutionInput.value = character.initialConstitution.toString()
-    initialIntellectInput.value = character.initialIntellect.toString()
-    initialEducationInput.value = character.initialEducation.toString()
-    initialSocialInput.value = character.initialSocial.toString()
-
-    currentStrengthInput.value = character.strength.toString()
-    currentDexterityInput.value = character.dexterity.toString()
-    currentConstitutionInput.value = character.constitution.toString()
-    currentIntellectInput.value = character.intellect.toString()
-    currentEducationInput.value = character.education.toString()
-    currentSocialInput.value = character.social.toString()
-}
-
-
-function displaySkills(character) {
-    adminInput.value = character.admin.toString()
-    advocateInput.value = character.advocate.toString()
-
-    xpAdminInput.value = character.xpAdmin.toString()
-    xpAdvocateInput.value = character.xpAdvocate.toString()
-}
-
-
-displayTitle(character);
-displayIdentity(character);
-displayCharacteristics(character);
-displaySkills(character);
-
-function setInitialCharacteristicsEditable() {
-    initialStrengthInput.removeAttribute('readonly')
-    initialStrengthInput.removeAttribute('readonly')
-    initialDexterityInput.removeAttribute('readonly')
-    initialConstitutionInput.removeAttribute('readonly')
-    initialIntellectInput.removeAttribute('readonly')
-    initialEducationInput.removeAttribute('readonly')
-    initialSocialInput.removeAttribute('readonly') 
-}
-
-function setCurrentCharacteristicsEditable() {
-    currentStrengthInput.removeAttribute('readonly')
-    currentStrengthInput.removeAttribute('readonly')
-    currentDexterityInput.removeAttribute('readonly')
-    currentConstitutionInput.removeAttribute('readonly')
-    currentIntellectInput.removeAttribute('readonly')
-    currentEducationInput.removeAttribute('readonly')
-    currentSocialInput.removeAttribute('readonly') 
+    for (var i = 0; i < characteristicInitials.length; i++) {
+        var field = characteristicInitials[i].dataset['field']
+        characteristicInitials[i].value = character[field]
+    }
+    for (var i = 0; i < characteristicCurrents.length; i++) {
+        var field = characteristicCurrents[i].dataset['field']
+        characteristicCurrents[i].value = character[field]
+    }
+    for (var i = 0; i < characteristicModifiers.length; i++) {
+        var field = characteristicModifiers[i].dataset['field']
+        characteristicModifiers[i].value = makeModifierString(character[field])
+    }
 }
 
 function setInitialCharacteristicsReadOnly() {
-    initialStrengthInput.setAttribute('readonly', true)
-    initialStrengthInput.setAttribute('readonly', true)
-    initialDexterityInput.setAttribute('readonly', true)
-    initialConstitutionInput.setAttribute('readonly', true)
-    initialIntellectInput.setAttribute('readonly', true)
-    initialEducationInput.setAttribute('readonly', true)
-    initialSocialInput.setAttribute('readonly', true) 
+    setReadOnly(characteristicInitials)
+}
+
+function setInitialCharacteristicsEditable() {
+    setEditable(characteristicInitials)
 }
 
 function setCurrentCharacteristicsReadOnly() {
-    currentStrengthInput.setAttribute('readonly', true)
-    currentStrengthInput.setAttribute('readonly', true)
-    currentDexterityInput.setAttribute('readonly', true)
-    currentConstitutionInput.setAttribute('readonly', true)
-    currentIntellectInput.setAttribute('readonly', true)
-    currentEducationInput.setAttribute('readonly', true)
-    currentSocialInput.setAttribute('readonly', true) 
+    setReadOnly(characteristicCurrents)
 }
 
-function setSkillsEditable() {
-    adminInput.removeAttribute('readonly')
-    advocateInput.removeAttribute('readonly')
+function setCurrentCharacteristicsEditable() {
+    setEditable(characteristicCurrents)
 }
 
-function setXpSkillsEditable() {
-    xpAdminInput.removeAttribute('readonly')
-    xpAdvocateInput.removeAttribute('readonly')
+function displaySkills(character) {
+    for (var i = 0; i < skillLevels.length; i++) {
+        var field = skillLevels[i].dataset['field']
+        skillLevels[i].value = (character[field] == undefined) ? '-' : character[field]
+    }
+    for (var i = 0; i < skillXps.length; i++) {
+        var field = skillXps[i].dataset['field']
+        skillXps[i].value = (character[field] == undefined) ? 0 : character[field]
+    }
+    for (var i = 0; i < skillModifiers.length; i++) {
+        var field = skillModifiers[i].dataset['field']
+        skillModifiers[i].value = addPlusIfPositive((character[field] == undefined) ? '-3' : character[field])
+    }
 }
 
-function setSkillsReadOnly() {
-    adminInput.setAttribute('readonly', true)
-    advocateInput.setAttribute('readonly', true)
+function setSkillLevelsReadOnly() {
+    setReadOnly(skillLevels)
 }
 
-function setXpSkillsReadOnly() {
-    xpAdminInput.setAttribute('readonly', true)
-    xpAdvocateInput.setAttribute('readonly', true)
+function setSkillLevelsEditable() {
+    setEditable(skillLevels)
 }
 
-setInitialCharacteristicsReadOnly();
-setCurrentCharacteristicsEditable();
-setXpSkillsEditable();
-setSkillsReadOnly();
+function setSkillXpsReadOnly() {
+    setReadOnly(skillXps)
+}
 
-editInput.checked = false
+function setSkillXpsEditable() {
+    setEditable(skillXps)
+}
+
+function setEditionMode() {
+    setIdentityEditable()
+    setInitialCharacteristicsEditable()
+    setCurrentCharacteristicsReadOnly()
+    setSkillLevelsEditable()
+    setSkillXpsReadOnly()
+}
+
+function setRunningMode() {
+    setIdentityReadOnly()
+    setInitialCharacteristicsReadOnly()
+    setCurrentCharacteristicsEditable()
+    setSkillLevelsReadOnly()
+    setSkillXpsEditable()
+}
 
 editInput.addEventListener("change", function () {
     if (this.checked) {
         console.log("You are now in edition mode");
+        setEditionMode()
         editionActivated = true
-        setInitialCharacteristicsEditable()
-        setCurrentCharacteristicsReadOnly()
-        setSkillsEditable()
-        setXpSkillsReadOnly()
-
     } else {
         console.log("You are now in running mode");
+        setRunningMode()
         editionActivated = false
-        setInitialCharacteristicsReadOnly()
-        setCurrentCharacteristicsEditable()
-        setXpSkillsEditable()
-        setSkillsReadOnly()
     }
 })
 
-nameInput.addEventListener("change", function () {
-    character.name = this.value
-    displayTitle(character)
-})
-
-surnameInput.addEventListener("change", function () {
-    character.surname = this.value
-    displayTitle(character)
-})
-
-const nodeList = document.querySelectorAll("button.minusplus");
-for (var i = 0; i < nodeList.length; i++) {
-    nodeList[i].addEventListener("click", changeCharacteristic);
-}
-
-const skillList = document.querySelectorAll("button.skillminusplus");
-for (var i = 0; i < skillList.length; i++) {
-    skillList[i].addEventListener("click", changeSkill);
+for (var i = 0; i < characteristicMinusPlus.length; i++) {
+    characteristicMinusPlus[i].addEventListener("click", changeCharacteristic)
 }
 
 function changeCharacteristic(event) {
@@ -270,7 +225,7 @@ function changeCharacteristic(event) {
     var type = this.dataset.type
 
     if (editionActivated) {
-        var initialFieldname = "initial" + fieldname.charAt(0).toUpperCase() + fieldname.slice(1)
+        var initialFieldname = fieldname + "Initial"
         var initialValue = character[initialFieldname]
         if (type == 'minus') {
             character[initialFieldname] = initialValue - 1
@@ -290,25 +245,55 @@ function changeCharacteristic(event) {
     displayCharacteristics(character)
 }
 
+for (var i = 0; i < skillMinusPlus.length; i++) {
+    skillMinusPlus[i].addEventListener("click", changeSkill)
+}
+
 function changeSkill(event) {
     var fieldname = this.dataset.field
     var type = this.dataset.type
 
     if (editionActivated) {
-        var currentValue = character[fieldname]
+        var levelFieldName = fieldname + "Level"
+        var levelValue = character[levelFieldName]
         if (type == 'minus') {
-            character[fieldname] = currentValue - 1
+            if ((levelValue == 0) || (levelValue == undefined)) {
+                character[levelFieldName] = undefined
+            } else {
+                character[levelFieldName] = levelValue - 1
+            }
         } else if (type == 'plus') {
-            character[fieldname] = currentValue + 1
+            if (levelValue == undefined) {
+                character[levelFieldName] = 0
+            } else {
+                character[levelFieldName] = levelValue + 1
+            }
         }
     } else {
-        var xpFieldname = "xp" + fieldname.charAt(0).toUpperCase() + fieldname.slice(1)
-        var currentValue = character[xpFieldname]
+        var xpFieldName = fieldname + "Xp"
+        var xpValue = character[xpFieldName]
         if (type == 'minus') {
-            character[xpFieldname] = currentValue - 1
+            character[xpFieldName] = xpValue - 1
         } else if (type == 'plus') {
-            character[xpFieldname] = currentValue + 1
+            character[xpFieldName] = xpValue + 1
         }
     }
     displaySkills(character)
 }
+
+nameInput.addEventListener("change", function () {
+    character.name = this.value
+    displayTitle(character)
+})
+
+surnameInput.addEventListener("change", function () {
+    character.surname = this.value
+    displayTitle(character)
+})
+
+displayTitle(character)
+displayIdentity(character)
+displayCharacteristics(character)
+displaySkills(character)
+editInput.checked = false
+setRunningMode()

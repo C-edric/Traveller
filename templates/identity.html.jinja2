@@ -1,0 +1,22 @@
+Identity of the character
+{%- for field in identity_fields %}
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4 justify-content-end identity-label" id="{{ field.name }}-label">{{ field.name.capitalize() }}</span>
+          <input type="text" class="form-control identity-input" id="{{ field.name }}-input" placeholder="{{ field.placeholder }}" data-field="{{ field.name }}" aria-labelledby="{{ field.name }}-label"
+          {%- if field.datalist %} list="{{ field.name }}-list"{%- endif -%}>
+          {%- if field.datalist %}
+          <datalist class="identity-datalist" id="{{ field.name }}-list">
+          {%- for item in field.datalist %} 
+            <option value="{{ item }}"></option>
+          {%- endfor %}
+          </datalist>
+          {%- endif %}
+          {%- if field.unitlist %}
+          <select class="form-select identity-unit" id="{{ field.name }}-unit">
+          {%- for item in field.unitlist %} 
+            <option>{{ item }}</option>
+          {%- endfor %}
+          </select>		
+          {%- endif %}
+        </div>
+{%- endfor %}
