@@ -1,0 +1,20 @@
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4 justify-content-end finance-label">Cash on hand</span>
+          <div class="col-4"><input type="text" class="form-control text-end" id="cash-on-hand-input" data-field="cashOnHand" value="0"></div>
+          <select class="form-select" id="cash-on-hand-unit">
+            <option value="1" selected>Cr.</option>
+            <option value="2">kCr.</option>
+          </select>
+        </div>
+{%- for field in finance_fields %}
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4 justify-content-end finance-label">{{ field.label }}</span>
+          <div class="col-4"><input type="text" class="form-control text-end finance-input" id="{{ field.id }}-input" data-field="{{ field.variable }}" value="0"></div>
+          <select class="form-select finance-unit" id="{{ field.id }}-unit">
+            <option value="1" selected>Cr./month</option>
+            <option value="2">kCr./month</option>
+            <option value="3">Cr./year</option>
+            <option value="4">kCr./year</option>
+          </select>
+        </div>
+{%- endfor %}

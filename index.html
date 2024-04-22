@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-  <!--
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Traveller's character sheet</title>
+  <!--
   <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" />
   <script src="static/js/popper.min.js"></script>
   <script src="static/js/bootstrap.min.js"></script>
   -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
@@ -18,7 +18,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
     crossorigin="anonymous"></script>
-  
+ 
 </head>
 
 <body>
@@ -35,41 +35,31 @@
   </header>
 
   <nav>
-    <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-identity-tab" data-bs-toggle="pill" data-bs-target="#pills-identity"
-          type="button" role="tab" aria-controls="pills-identity" aria-selected="true">Card Id</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-characteristics-tab" data-bs-toggle="pill"
-          data-bs-target="#pills-characteristics" type="button" role="tab" aria-controls="pills-characteristics"
-          aria-selected="false">Charact.</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-skills-tab" data-bs-toggle="pill" data-bs-target="#pills-skills"
-          type="button" role="tab" aria-controls="pills-skills" aria-selected="false">Skills</button>
-      </li>
-      <li class="nav-item dropdown" role="presentation">
-        <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Equip.</button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-weapons" type="button" role="tab"
-              aria-controls="pills-weapons" aria-selected="false">Weapons</a></li>
-          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-armors" type="button" role="tab"
-              aria-controls="pills-armors" aria-selected="false">Armors</a></li>
-          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-augments" type="button" role="tab"
-              aria-controls="pills-augments" aria-selected="false">Augments</a></li>
-          <li><a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-equipments" type="button" role="tab"
-              aria-controls="pills-equipments" aria-selected="false">Other</a></li>
-        </ul>
-      </li>
-    </ul>
+		<ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+		  <li class="nav-item" role="presentation">
+			<button class="nav-link active" id="pills-identity-tab" data-bs-toggle="pill" data-bs-target="#pills-identity"
+			  type="button" role="tab" aria-controls="pills-identity" aria-selected="true">Id.</button>
+		  </li>
+		  <li class="nav-item" role="presentation">
+			<button class="nav-link" id="pills-characteristics-tab" data-bs-toggle="pill"
+			  data-bs-target="#pills-characteristics" type="button" role="tab" aria-controls="pills-characteristics"
+			  aria-selected="false">Info.</button>
+		  </li>
+		  <li class="nav-item" role="presentation">
+			<button class="nav-link" id="pills-skills-tab" data-bs-toggle="pill" data-bs-target="#pills-skills"
+			  type="button" role="tab" aria-controls="pills-skills" aria-selected="false">Skills</button>
+		  </li>
+		  <li class="nav-item" role="presentation">
+			<button class="nav-link" id="pills-stuff-tab" data-bs-toggle="pill" data-bs-target="#pills-stuff"
+			  type="button" role="tab" aria-controls="pills-stuff" aria-selected="false">Stuff</button>
+		  </li>
+		</ul>
   </nav>
 
   <section>
     <div class="tab-content container-fluid d-flex" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-identity" role="tabpanel" aria-labelledby="pills-identity-tab">
-Identity of the character
+
         <div class="input-group mt-3">
           <span class="input-group-text col-4 justify-content-end identity-label" id="name-label">Name</span>
           <input type="text" class="form-control identity-input" id="name-input" placeholder="name" data-field="name" aria-labelledby="name-label">
@@ -115,7 +105,7 @@ Identity of the character
         </div>
       </div>
       <div class="tab-pane fade" id="pills-characteristics" role="tabpanel" aria-labelledby="pills-characteristics-tab">
-Characteristics of the character
+
         <div class="input-group mt-3">
           <span class="input-group-text col-4 justify-content-end characteristic-label">Strength</span>
           <input type="text" class="form-control text-start col-1 characteristic-modifier" id="strength-modifier" data-field="strength" value="+1"
@@ -194,372 +184,417 @@ Characteristics of the character
           <button class="btn btn-outline-secondary characteristic-minus-plus" type="button" data-type="plus"
             data-field="social">+</button>
         </div>
+        <hr>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4 justify-content-end finance-label">Cash on hand</span>
+          <div class="col-4"><input type="text" class="form-control text-end" id="cash-on-hand-input" data-field="cashOnHand" value="0"></div>
+          <select class="form-select" id="cash-on-hand-unit">
+            <option value="1" selected>Cr.</option>
+            <option value="2">kCr.</option>
+          </select>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4 justify-content-end finance-label">Living cost</span>
+          <div class="col-4"><input type="text" class="form-control text-end finance-input" id="living-cost-input" data-field="livingCost" value="0"></div>
+          <select class="form-select finance-unit" id="living-cost-unit">
+            <option value="1" selected>Cr./month</option>
+            <option value="2">kCr./month</option>
+            <option value="3">Cr./year</option>
+            <option value="4">kCr./year</option>
+          </select>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4 justify-content-end finance-label">Pension</span>
+          <div class="col-4"><input type="text" class="form-control text-end finance-input" id="pension-input" data-field="pension" value="0"></div>
+          <select class="form-select finance-unit" id="pension-unit">
+            <option value="1" selected>Cr./month</option>
+            <option value="2">kCr./month</option>
+            <option value="3">Cr./year</option>
+            <option value="4">kCr./year</option>
+          </select>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4 justify-content-end finance-label">Debt</span>
+          <div class="col-4"><input type="text" class="form-control text-end finance-input" id="debt-input" data-field="debt" value="0"></div>
+          <select class="form-select finance-unit" id="debt-unit">
+            <option value="1" selected>Cr./month</option>
+            <option value="2">kCr./month</option>
+            <option value="3">Cr./year</option>
+            <option value="4">kCr./year</option>
+          </select>
+        </div>
+        <div class="input-group mt-3">
+          <span class="input-group-text col-4 justify-content-end finance-label">Ship payment</span>
+          <div class="col-4"><input type="text" class="form-control text-end finance-input" id="ship-payment-input" data-field="shipPayment" value="0"></div>
+          <select class="form-select finance-unit" id="ship-payment-unit">
+            <option value="1" selected>Cr./month</option>
+            <option value="2">kCr./month</option>
+            <option value="3">Cr./year</option>
+            <option value="4">kCr./year</option>
+          </select>
+        </div>
       </div>
       <div class="tab-pane fade" id="pills-skills" role="tabpanel" aria-labelledby="pills-skills-tab">
-Skills of the character
+
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="admin--label">Admin</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="admin--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="admin--modifier" data-field="adminLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="admin--level" data-field="adminLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="admin--xp" data-field="adminXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="admin">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="admin">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="admin--label">Admin</span>
+          <input type="text" class="form-control text-start skill-modifier" id="admin--modifier" data-field="adminLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="admin--level" data-field="adminLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="admin--xp" data-field="adminXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="admin">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="admin">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="advocate--label">Advocate</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="advocate--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="advocate--modifier" data-field="advocateLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="advocate--level" data-field="advocateLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="advocate--xp" data-field="advocateXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="advocate">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="advocate">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="advocate--label">Advocate</span>
+          <input type="text" class="form-control text-start skill-modifier" id="advocate--modifier" data-field="advocateLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="advocate--level" data-field="advocateLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="advocate--xp" data-field="advocateXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="advocate">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="advocate">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="animals-cat-label">Animals</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="animals-cat-sublabel" value="cat"></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="animals-cat-modifier" data-field="animalsCatLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="animals-cat-level" data-field="animalsCatLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="animals-cat-xp" data-field="animalsCatXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="animalsCat">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="animalsCat">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="animals-cat-label">Animals(cat)</span>
+          <input type="text" class="form-control text-start skill-modifier" id="animals-cat-modifier" data-field="animalsCatLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="animals-cat-level" data-field="animalsCatLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="animals-cat-xp" data-field="animalsCatXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="animalsCat">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="animalsCat">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="animals-dog-label">Animals</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="animals-dog-sublabel" value="dog"></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="animals-dog-modifier" data-field="animalsDogLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="animals-dog-level" data-field="animalsDogLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="animals-dog-xp" data-field="animalsDogXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="animalsDog">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="animalsDog">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="animals-dog-label">Animals(dog)</span>
+          <input type="text" class="form-control text-start skill-modifier" id="animals-dog-modifier" data-field="animalsDogLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="animals-dog-level" data-field="animalsDogLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="animals-dog-xp" data-field="animalsDogXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="animalsDog">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="animalsDog">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="athletics--label">Athletics</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="athletics--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="athletics--modifier" data-field="athleticsLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="athletics--level" data-field="athleticsLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="athletics--xp" data-field="athleticsXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="athletics">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="athletics">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="athletics--label">Athletics</span>
+          <input type="text" class="form-control text-start skill-modifier" id="athletics--modifier" data-field="athleticsLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="athletics--level" data-field="athleticsLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="athletics--xp" data-field="athleticsXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="athletics">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="athletics">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="art--label">Art</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="art--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="art--modifier" data-field="artLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="art--level" data-field="artLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="art--xp" data-field="artXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="art">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="art">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="art--label">Art</span>
+          <input type="text" class="form-control text-start skill-modifier" id="art--modifier" data-field="artLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="art--level" data-field="artLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="art--xp" data-field="artXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="art">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="art">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="astrogation--label">Astrogation</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="astrogation--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="astrogation--modifier" data-field="astrogationLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="astrogation--level" data-field="astrogationLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="astrogation--xp" data-field="astrogationXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="astrogation">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="astrogation">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="astrogation--label">Astrogation</span>
+          <input type="text" class="form-control text-start skill-modifier" id="astrogation--modifier" data-field="astrogationLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="astrogation--level" data-field="astrogationLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="astrogation--xp" data-field="astrogationXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="astrogation">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="astrogation">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="broker--label">Broker</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="broker--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="broker--modifier" data-field="brokerLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="broker--level" data-field="brokerLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="broker--xp" data-field="brokerXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="broker">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="broker">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="broker--label">Broker</span>
+          <input type="text" class="form-control text-start skill-modifier" id="broker--modifier" data-field="brokerLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="broker--level" data-field="brokerLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="broker--xp" data-field="brokerXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="broker">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="broker">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="carouse--label">Carouse</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="carouse--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="carouse--modifier" data-field="carouseLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="carouse--level" data-field="carouseLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="carouse--xp" data-field="carouseXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="carouse">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="carouse">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="carouse--label">Carouse</span>
+          <input type="text" class="form-control text-start skill-modifier" id="carouse--modifier" data-field="carouseLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="carouse--level" data-field="carouseLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="carouse--xp" data-field="carouseXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="carouse">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="carouse">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="deception--label">Deception</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="deception--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="deception--modifier" data-field="deceptionLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="deception--level" data-field="deceptionLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="deception--xp" data-field="deceptionXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="deception">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="deception">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="deception--label">Deception</span>
+          <input type="text" class="form-control text-start skill-modifier" id="deception--modifier" data-field="deceptionLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="deception--level" data-field="deceptionLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="deception--xp" data-field="deceptionXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="deception">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="deception">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="diplomat--label">Diplomat</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="diplomat--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="diplomat--modifier" data-field="diplomatLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="diplomat--level" data-field="diplomatLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="diplomat--xp" data-field="diplomatXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="diplomat">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="diplomat">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="diplomat--label">Diplomat</span>
+          <input type="text" class="form-control text-start skill-modifier" id="diplomat--modifier" data-field="diplomatLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="diplomat--level" data-field="diplomatLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="diplomat--xp" data-field="diplomatXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="diplomat">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="diplomat">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="drive--label">Drive</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="drive--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="drive--modifier" data-field="driveLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="drive--level" data-field="driveLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="drive--xp" data-field="driveXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="drive">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="drive">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="drive--label">Drive</span>
+          <input type="text" class="form-control text-start skill-modifier" id="drive--modifier" data-field="driveLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="drive--level" data-field="driveLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="drive--xp" data-field="driveXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="drive">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="drive">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="electronics--label">Electronics</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="electronics--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="electronics--modifier" data-field="electronicsLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="electronics--level" data-field="electronicsLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="electronics--xp" data-field="electronicsXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="electronics">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="electronics">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="electronics--label">Electronics</span>
+          <input type="text" class="form-control text-start skill-modifier" id="electronics--modifier" data-field="electronicsLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="electronics--level" data-field="electronicsLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="electronics--xp" data-field="electronicsXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="electronics">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="electronics">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="engineer--label">Engineer</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="engineer--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="engineer--modifier" data-field="engineerLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="engineer--level" data-field="engineerLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="engineer--xp" data-field="engineerXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="engineer">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="engineer">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="engineer--label">Engineer</span>
+          <input type="text" class="form-control text-start skill-modifier" id="engineer--modifier" data-field="engineerLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="engineer--level" data-field="engineerLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="engineer--xp" data-field="engineerXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="engineer">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="engineer">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="explosives--label">Explosives</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="explosives--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="explosives--modifier" data-field="explosivesLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="explosives--level" data-field="explosivesLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="explosives--xp" data-field="explosivesXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="explosives">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="explosives">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="explosives--label">Explosives</span>
+          <input type="text" class="form-control text-start skill-modifier" id="explosives--modifier" data-field="explosivesLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="explosives--level" data-field="explosivesLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="explosives--xp" data-field="explosivesXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="explosives">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="explosives">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="flyer--label">Flyer</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="flyer--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="flyer--modifier" data-field="flyerLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="flyer--level" data-field="flyerLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="flyer--xp" data-field="flyerXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="flyer">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="flyer">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="flyer--label">Flyer</span>
+          <input type="text" class="form-control text-start skill-modifier" id="flyer--modifier" data-field="flyerLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="flyer--level" data-field="flyerLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="flyer--xp" data-field="flyerXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="flyer">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="flyer">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="gambler--label">Gambler</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="gambler--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="gambler--modifier" data-field="gamblerLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="gambler--level" data-field="gamblerLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="gambler--xp" data-field="gamblerXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="gambler">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="gambler">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="gambler--label">Gambler</span>
+          <input type="text" class="form-control text-start skill-modifier" id="gambler--modifier" data-field="gamblerLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="gambler--level" data-field="gamblerLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="gambler--xp" data-field="gamblerXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="gambler">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="gambler">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="gunner--label">Gunner</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="gunner--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="gunner--modifier" data-field="gunnerLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="gunner--level" data-field="gunnerLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="gunner--xp" data-field="gunnerXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="gunner">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="gunner">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="gunner--label">Gunner</span>
+          <input type="text" class="form-control text-start skill-modifier" id="gunner--modifier" data-field="gunnerLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="gunner--level" data-field="gunnerLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="gunner--xp" data-field="gunnerXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="gunner">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="gunner">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="gun combat--label">Gun combat</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="gun combat--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="gun combat--modifier" data-field="gun combatLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="gun combat--level" data-field="gun combatLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="gun combat--xp" data-field="gun combatXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="gun combat">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="gun combat">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="gun combat--label">Gun combat</span>
+          <input type="text" class="form-control text-start skill-modifier" id="gun combat--modifier" data-field="gun combatLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="gun combat--level" data-field="gun combatLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="gun combat--xp" data-field="gun combatXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="gun combat">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="gun combat">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="heavy weapon--label">Heavy weapon</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="heavy weapon--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="heavy weapon--modifier" data-field="heavy weaponLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="heavy weapon--level" data-field="heavy weaponLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="heavy weapon--xp" data-field="heavy weaponXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="heavy weapon">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="heavy weapon">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="heavy weapon--label">Heavy weapon</span>
+          <input type="text" class="form-control text-start skill-modifier" id="heavy weapon--modifier" data-field="heavy weaponLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="heavy weapon--level" data-field="heavy weaponLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="heavy weapon--xp" data-field="heavy weaponXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="heavy weapon">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="heavy weapon">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="investigate--label">Investigate</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="investigate--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="investigate--modifier" data-field="investigateLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="investigate--level" data-field="investigateLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="investigate--xp" data-field="investigateXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="investigate">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="investigate">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="investigate--label">Investigate</span>
+          <input type="text" class="form-control text-start skill-modifier" id="investigate--modifier" data-field="investigateLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="investigate--level" data-field="investigateLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="investigate--xp" data-field="investigateXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="investigate">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="investigate">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="jack of all trades--label">Jack of all trades</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="jack of all trades--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="jack of all trades--modifier" data-field="jack of all tradesLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="jack of all trades--level" data-field="jack of all tradesLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="jack of all trades--xp" data-field="jack of all tradesXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="jack of all trades">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="jack of all trades">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="jack of all trades--label">Jack of all trades</span>
+          <input type="text" class="form-control text-start skill-modifier" id="jack of all trades--modifier" data-field="jack of all tradesLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="jack of all trades--level" data-field="jack of all tradesLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="jack of all trades--xp" data-field="jack of all tradesXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="jack of all trades">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="jack of all trades">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="language--label">Language</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="language--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="language--modifier" data-field="languageLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="language--level" data-field="languageLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="language--xp" data-field="languageXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="language">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="language">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="language--label">Language</span>
+          <input type="text" class="form-control text-start skill-modifier" id="language--modifier" data-field="languageLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="language--level" data-field="languageLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="language--xp" data-field="languageXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="language">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="language">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="leadership--label">Leadership</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="leadership--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="leadership--modifier" data-field="leadershipLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="leadership--level" data-field="leadershipLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="leadership--xp" data-field="leadershipXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="leadership">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="leadership">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="leadership--label">Leadership</span>
+          <input type="text" class="form-control text-start skill-modifier" id="leadership--modifier" data-field="leadershipLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="leadership--level" data-field="leadershipLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="leadership--xp" data-field="leadershipXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="leadership">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="leadership">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="mechanic--label">Mechanic</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="mechanic--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="mechanic--modifier" data-field="mechanicLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="mechanic--level" data-field="mechanicLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="mechanic--xp" data-field="mechanicXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="mechanic">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="mechanic">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="mechanic--label">Mechanic</span>
+          <input type="text" class="form-control text-start skill-modifier" id="mechanic--modifier" data-field="mechanicLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="mechanic--level" data-field="mechanicLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="mechanic--xp" data-field="mechanicXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="mechanic">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="mechanic">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="medic--label">Medic</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="medic--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="medic--modifier" data-field="medicLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="medic--level" data-field="medicLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="medic--xp" data-field="medicXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="medic">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="medic">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="medic--label">Medic</span>
+          <input type="text" class="form-control text-start skill-modifier" id="medic--modifier" data-field="medicLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="medic--level" data-field="medicLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="medic--xp" data-field="medicXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="medic">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="medic">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="melee--label">Melee</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="melee--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="melee--modifier" data-field="meleeLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="melee--level" data-field="meleeLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="melee--xp" data-field="meleeXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="melee">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="melee">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="melee--label">Melee</span>
+          <input type="text" class="form-control text-start skill-modifier" id="melee--modifier" data-field="meleeLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="melee--level" data-field="meleeLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="melee--xp" data-field="meleeXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="melee">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="melee">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="navigation--label">Navigation</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="navigation--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="navigation--modifier" data-field="navigationLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="navigation--level" data-field="navigationLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="navigation--xp" data-field="navigationXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="navigation">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="navigation">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="navigation--label">Navigation</span>
+          <input type="text" class="form-control text-start skill-modifier" id="navigation--modifier" data-field="navigationLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="navigation--level" data-field="navigationLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="navigation--xp" data-field="navigationXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="navigation">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="navigation">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="persuade--label">Persuade</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="persuade--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="persuade--modifier" data-field="persuadeLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="persuade--level" data-field="persuadeLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="persuade--xp" data-field="persuadeXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="persuade">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="persuade">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="persuade--label">Persuade</span>
+          <input type="text" class="form-control text-start skill-modifier" id="persuade--modifier" data-field="persuadeLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="persuade--level" data-field="persuadeLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="persuade--xp" data-field="persuadeXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="persuade">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="persuade">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="pilot--label">Pilot</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="pilot--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="pilot--modifier" data-field="pilotLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="pilot--level" data-field="pilotLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="pilot--xp" data-field="pilotXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="pilot">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="pilot">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="pilot--label">Pilot</span>
+          <input type="text" class="form-control text-start skill-modifier" id="pilot--modifier" data-field="pilotLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="pilot--level" data-field="pilotLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="pilot--xp" data-field="pilotXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="pilot">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="pilot">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="profession--label">Profession</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="profession--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="profession--modifier" data-field="professionLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="profession--level" data-field="professionLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="profession--xp" data-field="professionXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="profession">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="profession">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="profession--label">Profession</span>
+          <input type="text" class="form-control text-start skill-modifier" id="profession--modifier" data-field="professionLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="profession--level" data-field="professionLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="profession--xp" data-field="professionXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="profession">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="profession">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="recon--label">Recon</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="recon--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="recon--modifier" data-field="reconLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="recon--level" data-field="reconLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="recon--xp" data-field="reconXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="recon">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="recon">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="recon--label">Recon</span>
+          <input type="text" class="form-control text-start skill-modifier" id="recon--modifier" data-field="reconLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="recon--level" data-field="reconLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="recon--xp" data-field="reconXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="recon">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="recon">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="science--label">Science</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="science--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="science--modifier" data-field="scienceLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="science--level" data-field="scienceLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="science--xp" data-field="scienceXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="science">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="science">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="science--label">Science</span>
+          <input type="text" class="form-control text-start skill-modifier" id="science--modifier" data-field="scienceLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="science--level" data-field="scienceLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="science--xp" data-field="scienceXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="science">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="science">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="stealth--label">Stealth</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="stealth--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="stealth--modifier" data-field="stealthLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="stealth--level" data-field="stealthLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="stealth--xp" data-field="stealthXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="stealth">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="stealth">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="stealth--label">Stealth</span>
+          <input type="text" class="form-control text-start skill-modifier" id="stealth--modifier" data-field="stealthLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="stealth--level" data-field="stealthLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="stealth--xp" data-field="stealthXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="stealth">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="stealth">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="steward--label">Steward</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="steward--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="steward--modifier" data-field="stewardLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="steward--level" data-field="stewardLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="steward--xp" data-field="stewardXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="steward">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="steward">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="steward--label">Steward</span>
+          <input type="text" class="form-control text-start skill-modifier" id="steward--modifier" data-field="stewardLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="steward--level" data-field="stewardLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="steward--xp" data-field="stewardXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="steward">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="steward">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="streetwise--label">Streetwise</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="streetwise--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="streetwise--modifier" data-field="streetwiseLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="streetwise--level" data-field="streetwiseLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="streetwise--xp" data-field="streetwiseXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="streetwise">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="streetwise">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="streetwise--label">Streetwise</span>
+          <input type="text" class="form-control text-start skill-modifier" id="streetwise--modifier" data-field="streetwiseLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="streetwise--level" data-field="streetwiseLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="streetwise--xp" data-field="streetwiseXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="streetwise">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="streetwise">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="survival--label">Survival</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="survival--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="survival--modifier" data-field="survivalLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="survival--level" data-field="survivalLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="survival--xp" data-field="survivalXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="survival">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="survival">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="survival--label">Survival</span>
+          <input type="text" class="form-control text-start skill-modifier" id="survival--modifier" data-field="survivalLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="survival--level" data-field="survivalLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="survival--xp" data-field="survivalXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="survival">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="survival">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="tactics--label">Tactics</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="tactics--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="tactics--modifier" data-field="tacticsLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="tactics--level" data-field="tacticsLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="tactics--xp" data-field="tacticsXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="tactics">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="tactics">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="tactics--label">Tactics</span>
+          <input type="text" class="form-control text-start skill-modifier" id="tactics--modifier" data-field="tacticsLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="tactics--level" data-field="tacticsLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="tactics--xp" data-field="tacticsXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="tactics">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="tactics">+</button>
         </div>
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="vac suit--label">Vac suit</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="vac suit--sublabel" value=""></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="vac suit--modifier" data-field="vac suitLevel" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="vac suit--level" data-field="vac suitLevel" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="vac suit--xp" data-field="vac suitXp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="vac suit">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="vac suit">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="vac suit--label">Vac suit</span>
+          <input type="text" class="form-control text-start skill-modifier" id="vac suit--modifier" data-field="vac suitLevel" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="vac suit--level" data-field="vac suitLevel" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="vac suit--xp" data-field="vac suitXp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="vac suit">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="vac suit">+</button>
         </div>
       </div>
-      <div class="tab-pane fade" id="pills-weapons" role="tabpanel" aria-labelledby="pills-weapons-tab">
-Weapons of the character
-      </div>
-      <div class="tab-pane fade" id="pills-armors" role="tabpanel" aria-labelledby="pills-armors-tab">
-Armors of the character
-      </div>
-      <div class="tab-pane fade" id="pills-augments" role="tabpanel" aria-labelledby="pills-augments-tab">
-Augments of the character
-      </div>
-      <div class="tab-pane fade" id="pills-equipments" role="tabpanel" aria-labelledby="pills-equipments-tab">
-Other stuff of the character
+      <div class="tab-pane fade" id="pills-stuff" role="tabpanel" aria-labelledby="pills-stuff-tab">
+    <div class="input-group mt-3">
+        <span class="input-group-text justify-content-end text-wrap fw-bold col-4" id="stuff-label">Name</span>
+        <div class="col-4"><input type="text" class="form-control fw-bold text-start" id="stuff-desc" value="Description" readonly></div>
+        <div class="col-2"><input type="text" class="form-control fw-bold text-end" id="stuff-weight" value="Kg" readonly></div>
+        <div class="col-2"><input type="text" class="form-control fw-bold text-end" id="stuff-price" value="Cr." readonly></div>
+    </div>
+    <div class="stuff-section" id="weapon-stuff">
+
+        <div class="input-group mt-1">
+          <span class="input-group-text justify-content-end text-wrap col-4 weapon-label" id="Stunner-label">Stunner</span>
+          <div class="col-4"><input type="text" class="form-control text-start weapon-desc" id="stunner-desc" value=" TL12 / 10m / 3D" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end weapon-weight" id="stunner-weight" value="2" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end weapon-price" id="stunner-price" value="9000" readonly></div>
+        </div>
+    </div>
+    <hr>
+    <div class="stuff-section" id="armor-stuff">
+
+        <div class="input-group mt-1">
+          <span class="input-group-text justify-content-end text-wrap col-4 armor-label" id="scaphandre-label">Scaphandre</span>
+          <div class="col-4"><input type="text" class="form-control text-start armor-desc" id="scaphandre-desc" value=" TL10" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end armor-weight" id="scaphandre-weight" value="15" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end armor-price" id="scaphandre-price" value="25000" readonly></div>
+        </div>
+    </div>
+    <hr>
+    <div class="stuff-section" id="augment-stuff">
+
+        <div class="input-group mt-1">
+          <span class="input-group-text justify-content-end text-wrap col-4 augment-label" id="none-label">None</span>
+          <div class="col-4"><input type="text" class="form-control text-start augment-desc" id="none-desc" value=" TL0" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end augment-weight" id="none-weight" value="0" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end augment-price" id="none-price" value="0" readonly></div>
+        </div>
+    </div>
+    <hr>
+    <div class="stuff-section" id="other-stuff">
+
+        <div class="input-group mt-1">
+          <span class="input-group-text justify-content-end text-wrap col-4 other-label" id="none-label">None</span>
+          <div class="col-4"><input type="text" class="form-control text-start other-desc" id="none-desc" value=" TL0" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end other-weight" id="none-weight" value="0" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end other-price" id="none-price" value="0" readonly></div>
+        </div>
+    </div>
       </div>
     </div>
   </section>

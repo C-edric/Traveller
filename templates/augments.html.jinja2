@@ -1,1 +1,9 @@
-Augments of the character
+
+{%- for field in augments_fields %}
+        <div class="input-group mt-1">
+          <span class="input-group-text justify-content-end text-wrap col-4 augment-label" id="{{ field.id }}-label">{{ field.name.capitalize() }}</span>
+          <div class="col-4"><input type="text" class="form-control text-start augment-desc" id="{{ field.id }}-desc" value="{{ field.description }}" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end augment-weight" id="{{ field.id }}-weight" value="{{ field.weight }}" readonly></div>
+          <div class="col-2"><input type="text" class="form-control text-end augment-price" id="{{ field.id }}-price" value="{{ field.price }}" readonly></div>
+        </div>
+{%- endfor %}

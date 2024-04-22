@@ -7,7 +7,25 @@ TEMPLATE_FILE = "overall.html.jinja2"
 OUTPUT_FILE = "index.html"
 
 
-class IdentityField:
+class Field:
+    def __init__(self, name: str):
+        self.name = name.lower()
+
+    @property
+    def id(self) -> str:
+        return self.name.replace(" ", "-")
+
+    @property
+    def label(self) -> str:
+        return self.name.capitalize()
+
+    @property
+    def variable(self) -> str:
+        first, *others = self.name.split(" ")
+        return "".join([first.lower(), *map(str.capitalize, others)])
+
+
+class IdentityField(Field):
     def __init__(
         self,
         name: str,
@@ -15,13 +33,13 @@ class IdentityField:
         datalist: list[str] | None = None,
         unitlist: list[str] | None = None,
     ):
-        self.name = name
+        super().__init__(name)
         self.placeholder = name if placeholder is None else placeholder
         self.datalist = datalist
         self.unitlist = unitlist
 
 
-IDENTITY_FIELDS = [
+IDENTITY_FIELDS: list[IdentityField] = [
     IdentityField("name"),
     IdentityField("surname"),
     IdentityField("age"),
@@ -44,12 +62,12 @@ IDENTITY_FIELDS = [
 ]
 
 
-class CharacteristicField:
+class CharacteristicField(Field):
     def __init__(self, name: str):
-        self.name = name
+        super().__init__(name)
 
 
-CHARACTERISTICS_FIELDS = [
+CHARACTERISTICS_FIELDS: list[CharacteristicField] = [
     CharacteristicField("strength"),
     CharacteristicField("dexterity"),
     CharacteristicField("constitution"),
@@ -59,13 +77,17 @@ CHARACTERISTICS_FIELDS = [
 ]
 
 
-class SkillField:
+class SkillField(Field):
     def __init__(self, name: str, option: str | None = None):
-        self.name = name
+        super().__init__(name)
         self.option = option if option else ""
+        if self.option:
+            self.fullname = self.name + "(" + self.option + ")"
+        else:
+            self.fullname = self.name
 
 
-SKILLS_FIELDS = [
+SKILLS_FIELDS: list[SkillField] = [
     SkillField("admin"),
     SkillField("advocate"),
     SkillField("animals", "cat"),
@@ -108,6 +130,102 @@ SKILLS_FIELDS = [
 ]
 
 
+class FinanceField(Field):
+    def __init__(self, name: str):
+        super().__init__(name)
+
+
+FINANCE_FIELDS: list[FinanceField] = [
+    FinanceField("living cost"),
+    FinanceField("pension"),
+    FinanceField("debt"),
+    FinanceField("ship payment"),
+]
+
+
+class WeaponField(Field):
+    def __init__(
+        self,
+        name: str,
+        desc: str,
+        tl: int,
+        _range: str,
+        damage: int,
+        weight: int,
+        price: int,
+    ):
+        super().__init__(name)
+        self.desc = desc
+        self.tl = tl
+        self.range = _range
+        self.damage = damage
+        self.weight = weight
+        self.price = price
+
+    @property
+    def description(self):
+        return (
+            self.desc
+            + " TL"
+            + str(self.tl)
+            + " / "
+            + self.range
+            + " / "
+            + str(self.damage)
+            + "D"
+        )
+
+
+WEAPONS_FIELDS: list[WeaponField] = [WeaponField("Stunner", "", 12, "10m", 3, 2, 9000)]
+
+
+class Equipment(Field):
+    def __init__(
+        self,
+        name: str,
+        desc: str,
+        tl: int,
+        weight: int,
+        price: int,
+    ):
+        super().__init__(name)
+        self.desc = desc
+        self.tl = tl
+        self.weight = weight
+        self.price = price
+
+    @property
+    def description(self):
+        return self.desc + " TL" + str(self.tl)
+
+
+class ArmorField(Equipment):
+    pass
+
+
+ARMORS_FIELDS: list[ArmorField] = [
+    ArmorField("Scaphandre", "", 10, 15, 25000),
+]
+
+
+class AugmentField(Equipment):
+    pass
+
+
+AUGMENTS_FIELDS: list[AugmentField] = [
+    AugmentField("None", "", 0, 0, 0),
+]
+
+
+class OtherField(Equipment):
+    pass
+
+
+OTHERS_FIELDS: list[OtherField] = [
+    OtherField("None", "", 0, 0, 0),
+]
+
+
 class Renderer:
     def __init__(self):
         self.loader = jinja2.FileSystemLoader(searchpath="./templates")
@@ -119,6 +237,11 @@ class Renderer:
             identity_fields=IDENTITY_FIELDS,
             characteristics_fields=CHARACTERISTICS_FIELDS,
             skills_fields=SKILLS_FIELDS,
+            finance_fields=FINANCE_FIELDS,
+            weapons_fields=WEAPONS_FIELDS,
+            armors_fields=ARMORS_FIELDS,
+            augments_fields=AUGMENTS_FIELDS,
+            others_fields=OTHERS_FIELDS,
         )
 
         with open(OUTPUT_FILE, "w") as file:

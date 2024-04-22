@@ -8,6 +8,11 @@ const surnameInput = document.getElementById("surname-input");
 // Identity
 const identityLabels = document.getElementsByClassName("identity-label");
 const identityInputs = document.getElementsByClassName("identity-input");
+const identityUnits = document.getElementsByClassName("identity-unit");
+
+const financeLabels = document.getElementsByClassName("finance-label");
+const financeInputs = document.getElementsByClassName("finance-input");
+const financeUnits = document.getElementsByClassName("finance-unit");
 
 // Caracteristics
 const characteristicLabels = document.getElementsByClassName("characteristic-label");
@@ -86,7 +91,7 @@ function addPlusIfPositive(value) {
     var strModifier = value.toString()
     if (value >= 0)
         strModifier = "+" + strModifier
-    return strModifier   
+    return strModifier
 }
 
 function makeModifierString(value) {
@@ -110,6 +115,17 @@ function setEditable(elements) {
     }
 }
 
+function setDisabled(elements) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].setAttribute('disabled', true)
+    }
+}
+
+function setEnabled(elements) {
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].removeAttribute('disabled')
+    }
+}
 
 function displayIdentity(character) {
     for (var i = 0; i < identityInputs.length; i++) {
@@ -120,10 +136,22 @@ function displayIdentity(character) {
 
 function setIdentityReadOnly() {
     setReadOnly(identityInputs)
+    setDisabled(identityUnits)
 }
 
 function setIdentityEditable() {
     setEditable(identityInputs)
+    setEnabled(identityUnits)
+}
+
+function setFinanceReadOnly() {
+    setReadOnly(financeInputs)
+    setDisabled(financeUnits)
+}
+
+function setFinanceEditable() {
+    setEditable(financeInputs)
+    setEnabled(financeUnits)
 }
 
 function displayCharacteristics(character) {
@@ -189,7 +217,9 @@ function setSkillXpsEditable() {
 }
 
 function setEditionMode() {
+    editionActivated = true
     setIdentityEditable()
+    setFinanceEditable()
     setInitialCharacteristicsEditable()
     setCurrentCharacteristicsReadOnly()
     setSkillLevelsEditable()
@@ -197,7 +227,9 @@ function setEditionMode() {
 }
 
 function setRunningMode() {
+    editionActivated = false
     setIdentityReadOnly()
+    setFinanceReadOnly()
     setInitialCharacteristicsReadOnly()
     setCurrentCharacteristicsEditable()
     setSkillLevelsReadOnly()
@@ -208,11 +240,9 @@ editInput.addEventListener("change", function () {
     if (this.checked) {
         console.log("You are now in edition mode");
         setEditionMode()
-        editionActivated = true
     } else {
         console.log("You are now in running mode");
         setRunningMode()
-        editionActivated = false
     }
 })
 

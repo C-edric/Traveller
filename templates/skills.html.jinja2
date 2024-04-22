@@ -1,16 +1,14 @@
-Skills of the character
 {%- for field in skills_fields %}
     {%- set skill = field.name %}
     {%- set subskill = field.option %}
     {%- set fullskillId = skill + "-" + subskill %}
     {%- set fullskillData = skill + subskill.capitalize() %}
         <div class="input-group mt-3">
-          <span class="input-group-text col-4 justify-content-end skill-label" id="{{ fullskillId }}-label">{{ field.name.capitalize() }}</span>
-          <div class="col-3"><input type="text" class="form-control text-end skill-sublabel" id="{{ fullskillId }}-sublabel" value="{{ subskill }}"></div>
-          <div class="col-1"><input type="text" class="form-control text-start skill-modifier px-2" id="{{ fullskillId }}-modifier" data-field="{{ fullskillData }}Level" value="-3" readonly></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-level px-2" id="{{ fullskillId }}-level" data-field="{{ fullskillData }}Level" value="0"></div>
-          <div class="col-1"><input type="text" class="form-control text-end skill-xp px-2" id="{{ fullskillId }}-xp" data-field="{{ fullskillData }}Xp" value="2"></div>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="minus" data-field="{{ fullskillData }}">-</button>
-          <button class="btn btn-outline-secondary skill-minus-plus col-1 px-2" type="button" data-type="plus" data-field="{{ fullskillData }}">+</button>
+          <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="{{ fullskillId }}-label">{{ field.fullname.capitalize() }}</span>
+          <input type="text" class="form-control text-start skill-modifier" id="{{ fullskillId }}-modifier" data-field="{{ fullskillData }}Level" value="-3" readonly>
+          <input type="text" class="form-control text-end skill-level" id="{{ fullskillId }}-level" data-field="{{ fullskillData }}Level" value="0">
+          <input type="text" class="form-control text-end skill-xp" id="{{ fullskillId }}-xp" data-field="{{ fullskillData }}Xp" value="2">
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="minus" data-field="{{ fullskillData }}">-</button>
+          <button class="btn btn-outline-secondary skill-minus-plus col-1" type="button" data-type="plus" data-field="{{ fullskillData }}">+</button>
         </div>
 {%- endfor %}
