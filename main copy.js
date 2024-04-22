@@ -60,8 +60,6 @@ class Character {
         // Skills
         this.adminLevel = 0
         this.advocateLevel = 1
-        this.animalsCatLevel = 1
-        this.animalsDogLevel = 0
 
         this.adminXp = 3
         this.advocateXp = 5
@@ -187,38 +185,6 @@ function setCurrentCharacteristicsEditable() {
     setEditable(characteristicCurrents)
 }
 
-const skill_data = {
-    "adminLevel" : ["strength", "dexterity"],
-    "advocateLevel" : ["constitution", "intellect"],
-    "animalsLevel" : ["education", "dexterity"],
-    "athleticsLevel" : ["strength", "social"],
-    "artLevel" : ["strength", "dexterity"],
-    "astrogationLevel" : ["strength", "dexterity"],
-    "brokerLevel" : ["strength", "dexterity"],
-    "carouseLevel" : ["strength", "dexterity"],
-    "deceptionLevel" : ["strength", "dexterity"],
-    "diplomatLevel" : ["strength", "dexterity"],
-    "driveLevel" : ["strength", "dexterity"],
-}
-
-function calcSkillModifier(character, fullskill, skill) {
-    console.log(fullskill)
-    var firstModifier = 0
-    var secondModifier = 0
-    var level = (character[fullskill] == undefined) ? -3 : parseInt(character[fullskill])
-    console.log(level)
-    if(skill in skill_data) {
-        var data = skill_data[skill]
-        console.log(data)
-        firstModifier = calcModifier(character[data[0]])
-        console.log(firstModifier)
-        secondModifier = calcModifier(character[data[1]])
-        console.log(secondModifier)
-    }
-    
-    return (firstModifier > secondModifier) ? firstModifier + level : secondModifier + level
-}
-
 function displaySkills(character) {
     for (var i = 0; i < skillLevels.length; i++) {
         var field = skillLevels[i].dataset['field']
@@ -230,9 +196,7 @@ function displaySkills(character) {
     }
     for (var i = 0; i < skillModifiers.length; i++) {
         var field = skillModifiers[i].dataset['field']
-        var skill = skillModifiers[i].dataset['skill']
-        var modifier = calcSkillModifier(character, field, skill)
-        skillModifiers[i].value = addPlusIfPositive(modifier)
+        skillModifiers[i].value = addPlusIfPositive((character[field] == undefined) ? '-3' : character[field])
     }
 }
 

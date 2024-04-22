@@ -90,6 +90,7 @@ class SkillField(Field):
 SKILLS_FIELDS: list[SkillField] = [
     SkillField("admin"),
     SkillField("advocate"),
+    SkillField("animals"),
     SkillField("animals", "cat"),
     SkillField("animals", "dog"),
     SkillField("athletics"),
