@@ -28,8 +28,12 @@ const skillModifiers = document.getElementsByClassName("skill-modifier");
 const skillLevels = document.getElementsByClassName("skill-level");
 const skillXps = document.getElementsByClassName("skill-xp");
 const skillMinusPlus = document.getElementsByClassName("skill-minus-plus");
+const skillPopovers = document.getElementsByClassName("skill-popover");
 
 let editionActivated = false
+
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
 class Character {
     constructor() {
@@ -65,6 +69,8 @@ class Character {
 
         this.adminXp = 3
         this.advocateXp = 5
+
+        this.expert = []
     }
 }
 var character = new Character()
@@ -202,21 +208,53 @@ const skill_data = {
 }
 
 function calcSkillModifier(character, fullskill, skill) {
-    console.log(fullskill)
     var firstModifier = 0
+    var firstModifierStr = ""
     var secondModifier = 0
+    var secondModifierStr = ""
     var level = (character[fullskill] == undefined) ? -3 : parseInt(character[fullskill])
-    console.log(level)
+    var expert = (character.expert[fullskill] == undefined) ? -3 : parseInt(character.expert[fullskill])
+
     if(skill in skill_data) {
         var data = skill_data[skill]
-        console.log(data)
         firstModifier = calcModifier(character[data[0]])
-        console.log(firstModifier)
+        firstModifierStr = data[0]
         secondModifier = calcModifier(character[data[1]])
-        console.log(secondModifier)
+        secondModifierStr = data[1]
     }
+
+    var base = 0
+    var baseStr = "()"
+    var modComputer = 0
+    var modComputerStr = "(computer)"
+    if(level > expert - 1) {
+        base = level
+        baseStr = "(level)"
+        if(expert >=0) {
+            modComputer = 1
+        }
+    } else {
+        base = expert - 1
+        baseStr = "(computer)"
+    }
+
+    var modCharacteristic = -3
+    var modCharacteristicStr = "()"
+    if(firstModifier > secondModifier)
+    {
+        modCharacteristic = firstModifier
+        modCharacteristicStr = "(" + firstModifierStr + ")"
+    } else {
+        modCharacteristic = secondModifier
+        modCharacteristicStr = "(" + secondModifierStr + ")"
+    }
+    var modifier = base + modCharacteristic + modComputer
+
+    operationStr = addPlusIfPositive(modifier) + " = " + 
+        base.toString() + baseStr + addPlusIfPositive(modCharacteristic) + 
+        modCharacteristicStr + addPlusIfPositive(modComputer) + modComputerStr
     
-    return (firstModifier > secondModifier) ? firstModifier + level : secondModifier + level
+    return [modifier, operationStr]
 }
 
 function displaySkills(character) {
@@ -232,7 +270,8 @@ function displaySkills(character) {
         var field = skillModifiers[i].dataset['field']
         var skill = skillModifiers[i].dataset['skill']
         var modifier = calcSkillModifier(character, field, skill)
-        skillModifiers[i].value = addPlusIfPositive(modifier)
+        skillModifiers[i].value = addPlusIfPositive(modifier[0])
+        var popover = new bootstrap.Popover(popoverTriggerList[i], {content : modifier[1]})
     }
 }
 

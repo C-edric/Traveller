@@ -3,7 +3,7 @@
     {%- set subskill = field.option %}
     {%- set fullskillId = skill + "-" + subskill %}
     {%- set fullskillData = skill + subskill.capitalize() %}
-        <div class="input-group mt-3">
+        <div class="input-group mt-3 skill-popover" data-bs-toggle="popover"  data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="calc modifier...">
           <span class="input-group-text justify-content-end text-wrap col-4 skill-label" id="{{ fullskillId }}-label">{{ field.fullname.capitalize() }}</span>
           <input type="text" class="form-control text-start skill-modifier" id="{{ fullskillId }}-modifier" data-skill="{{ skill }}Level" data-field="{{ fullskillData }}Level" value="-3" readonly>
           <input type="text" class="form-control text-end skill-level" id="{{ fullskillId }}-level" data-field="{{ fullskillData }}Level" value="0">
