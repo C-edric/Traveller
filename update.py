@@ -195,10 +195,6 @@ class Equipment(Field):
         self.weight = weight
         self.price = price
 
-    @property
-    def description(self):
-        return self.desc + " TL" + str(self.tl)
-
 
 class ArmorField(Equipment):
     pass
@@ -219,11 +215,21 @@ AUGMENTS_FIELDS: list[AugmentField] = [
 
 
 class OtherField(Equipment):
-    pass
+    def __init__(
+        self,
+        name: str,
+        desc: str,
+        tl: int,
+        weight: int,
+        price: int,
+        number: int = 1
+    ):
+        super().__init__(name, desc, tl, weight, price)
+        self.number = number
 
 
 OTHERS_FIELDS: list[OtherField] = [
-    OtherField("None", "", 0, 0, 0),
+    OtherField("Stim", "Eliminate fatigue", 10, 1, 50, 10),
 ]
 
 

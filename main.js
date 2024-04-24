@@ -62,13 +62,28 @@ class Character {
         this.social = 4
 
         // Skills
-        this.adminLevel = 0
-        this.advocateLevel = 1
-        this.animalsCatLevel = 1
-        this.animalsDogLevel = 0
+        this.athleticsLevel = 0
+        this.diplomatLevel = 0
+        this.driveLevel = 0
+        this.electronicsLevel = 0
+        this.gunCombatLevel = 0
+        this.gunCombatEnergyLevel = 1
+        this.investigateLevel = 0
+        this.languageLevel = 0
+        this.languageVilaniLevel = 1
+        this.medicLevel = 2
+        this.persuadeLevel = 1
+        this.scienceLevel = 0
+        this.scienceBiologyLevel = 3
+        this.survivalLevel = 0
 
-        this.adminXp = 3
-        this.advocateXp = 5
+        this.athleticsXp = 2
+        this.carouseXp = 2
+        this.scienceBiologyXp = 2
+        this.sciencePhysicsXp = 1
+        this.streetwiseXp = 1
+        this.survivalXp = 1
+        this.vaccSuitXp = 2
 
         this.expert = []
     }
@@ -207,6 +222,27 @@ const skill_data = {
     "driveLevel" : ["strength", "dexterity"],
 }
 
+function getShortName(characteristic) {
+    if(characteristic == "strength") {
+        return "str"
+    }
+    if(characteristic == "dexterity") {
+        return "dex"
+    }
+    if(characteristic == "constitution") {
+        return "con"
+    }
+    if(characteristic == "intellect") {
+        return "int"
+    }
+    if(characteristic == "education") {
+        return "edu"
+    }
+    if(characteristic == "social") {
+        return "soc"
+    }
+}
+
 function calcSkillModifier(character, fullskill, skill) {
     var firstModifier = 0
     var firstModifierStr = ""
@@ -218,24 +254,24 @@ function calcSkillModifier(character, fullskill, skill) {
     if(skill in skill_data) {
         var data = skill_data[skill]
         firstModifier = calcModifier(character[data[0]])
-        firstModifierStr = data[0]
+        firstModifierStr = getShortName(data[0])
         secondModifier = calcModifier(character[data[1]])
-        secondModifierStr = data[1]
+        secondModifierStr = getShortName(data[1])
     }
 
     var base = 0
     var baseStr = "()"
     var modComputer = 0
-    var modComputerStr = "(computer)"
+    var modComputerStr = "(comp.)"
     if(level > expert - 1) {
         base = level
-        baseStr = "(level)"
+        baseStr = "(lvl)"
         if(expert >=0) {
             modComputer = 1
         }
     } else {
         base = expert - 1
-        baseStr = "(computer)"
+        baseStr = "(comp.)"
     }
 
     var modCharacteristic = -3
@@ -250,7 +286,7 @@ function calcSkillModifier(character, fullskill, skill) {
     }
     var modifier = base + modCharacteristic + modComputer
 
-    operationStr = addPlusIfPositive(modifier) + " = " + 
+    operationStr = "<strong>" + addPlusIfPositive(modifier) + "</strong> = " + 
         base.toString() + baseStr + addPlusIfPositive(modCharacteristic) + 
         modCharacteristicStr + addPlusIfPositive(modComputer) + modComputerStr
     
@@ -271,7 +307,7 @@ function displaySkills(character) {
         var skill = skillModifiers[i].dataset['skill']
         var modifier = calcSkillModifier(character, field, skill)
         skillModifiers[i].value = addPlusIfPositive(modifier[0])
-        var popover = new bootstrap.Popover(popoverTriggerList[i], {content : modifier[1]})
+        var popover = new bootstrap.Popover(popoverTriggerList[i], {content : modifier[1], html : true})
     }
 }
 
